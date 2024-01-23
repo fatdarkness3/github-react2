@@ -1,0 +1,867 @@
+* {
+    box-sizing: border-box;
+}
+*::after , *::before {
+    box-sizing: border-box;
+}
+ul , li {
+    list-style: none;
+    padding: 0;
+}
+.main .wrapper {
+    margin: 0 auto;
+    max-width: 1200px;
+}
+.none {
+    display: none;
+}
+body {
+    background-color: #0d1117 !important;
+}
+h1 , h2 , h3 , h4 , h5 , h6  {
+    margin: 0;
+    color: #ffffff;
+}
+i {
+    color: #848d97;
+}
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+header {
+    padding: 0 20px;
+    margin:0px 10px 10px 10px;
+    border-bottom: #21262d solid 1px;
+}
+span {
+    color: #fff;
+}
+.cl {
+     display: flex;
+     flex-direction: column;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+header .left {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+   
+}
+.part2 ul li h6 {
+    font-size: 14px;
+    color: #dfedf3;
+    margin: 0;
+}
+header .left h4  {
+    height: 12px;
+    font-size: 15px;
+    color: #fff;
+    margin: 0;
+}
+header .left button {
+    background-color: transparent;
+    color: #8f8f8f;
+    padding: 1px 7px 1px 7px;
+    border: 1px solid #30363d;
+    margin-top: 8px;
+}
+header .left button:hover {
+    background-color: transparent;
+    border: 1px solid #8b949e;
+}
+header .left button i  {
+    font-size: 18px;
+}
+i.bi-github {
+    color: #fff;
+    font-size: 34px;
+}
+
+.right {
+    display: flex;
+    gap: 10px;
+}
+.right .f {
+    display: flex;
+    align-items: center;
+}
+.right button {
+    background-color: transparent;
+    color: #8f8f8f;
+    padding: 0px 7px;
+    border: 1px solid #30363d;
+}
+.right button i {
+    font-size: 17px;
+}
+.bbb {
+    padding: 10px 0;
+}
+.right button:hover {
+    background-color: #0000;
+    border: 1px solid #fff;
+    border-radius: 5px;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.flex-button {
+    display: flex;
+    align-items: center;
+}
+.input {
+    color: #8f8f8f;
+    background-color: #0000;
+    border: transparent;
+    width: 322px;
+    padding-left: 15px;
+    font-size: 13px;
+}
+.input:focus-visible {
+    outline: 0px;
+}
+/* .icon {
+    padding-left: 25px;
+    background: url("https://static.thenounproject.com/png/101791-200.png") no-repeat left ;
+    background-size: 20px;
+    color: #6e6e6e;
+  } */
+.part2 {
+    margin-top: 15px;
+}
+.part2 ul  {
+    flex-direction: row;
+    gap: 15px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+}
+.part2 .notCenter {
+    align-items: baseline;
+}
+/* .part2 ul li {
+    
+} */
+/* .part2 ul li:nth-child(2) {
+    border-bottom: 2px solid orange;
+} */
+.part2 ul li  .give-position {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+    padding: 1px;
+}
+.fffa h6 {
+    color: #cfd6db;
+}
+.part3 h6 {
+    color: #cfd6db;
+}
+.login h5 {
+    color: #6e767f;
+    font-weight: 300;
+}
+.bio h6 {
+    font-weight: 400;
+    line-height: 25px;
+    color: #848d8b;
+}
+.part2 ul li .give-position:hover {
+    background-color: #2b2b2b;
+    border-radius: 10px;
+
+}
+.part2 ul li  .backgroundBlack::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+   
+    width: 100%;
+    /* display: none;
+    height: 0; */
+    
+}
+.achievements h6{
+    color: #848d8b;
+}
+.part2 ul li button {
+    background: transparent;
+    border: 0;
+}
+.part2 ul li button:focus .backgroundBlack::after {
+    border: 1px solid #f78166 ;
+}
+/* .part2 ul li  .backgroundBlack {
+    border: 1px solid orange;
+} */
+.part2 ul li  .backgroundBlack {
+    margin-top: 15px;
+    
+}
+.part2 ul li {
+    position: relative;
+} 
+.part2 ul li .first {
+    color: #fff;
+    background-color: #303030;
+    border-radius: 50px;
+    font-size: 14px;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    padding: 12px;
+}
+.part2 ul li div .absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    font-size: 12.8px;
+}
+/* .part2 .first {
+    background-color: #535252;
+    border-radius: 50%;
+    position: relative;
+} */
+
+
+
+
+
+
+.main .p1 {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    gap: 13px
+}
+.main .p2 {
+    width: 75%;
+}
+/* .main .p1 .userImage {
+    width: 300px;
+    height: 300px;
+} */
+
+.main .p1 .userImage img {
+    width: 100%;
+    border-radius: 50%;
+}
+.main .p1 .userName p {
+    color: #e6edf3;
+    font-size: 23px;
+    font-weight: 500;
+    margin: 0;
+}
+.main .p1 .button-follow button{
+    background-color: #21262d;
+    width: 100%;
+    border: 1px solid #363b42;
+}
+.main .p1 .button-follow button:hover {
+    background-color: #30363d;
+    border: 1px solid #8b949e;
+}
+.main .p1 .followers {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    margin-top: 5px;
+    
+}
+.main .p1 .followers .a   {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    text-decoration: none;
+}
+.main .p1 .followers .a:hover :is(p , span , i)   {
+    color: #1a73f7 ;
+}
+.main .p1 .followers p {
+    color: #848d97;
+    margin: 0;
+    font-size: 13px;
+}
+.main .p1 .block-report p {
+    color: #9e9e9e;
+}
+
+.main .flexing {
+    flex-direction: row;
+    gap: 18px;
+    display: flex;
+    margin-top: 40px;
+}
+.p2 .searchBtn button {
+    background: transparent;
+    padding: 0 17px;
+    font-size: 13px;
+    background-color: #21262d;
+    border: 1px solid #363b42;
+}
+.p2 .searchBtn input {
+    background: transparent;
+    border: 1px solid #30363d;
+    color: #8f8f8f ;
+    width: 100%;
+    font-size: 13px;
+}
+.p2 .searchBtn input::placeholder {
+    color: #6e7681;
+}
+.p2 .searchBtn {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid #21262d ;
+    padding-bottom: 20px;
+}
+.p2 .searchBtn .givFlex {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.p2 .searchBtn .givFlex p {
+    color: #c4ccd4;
+    margin: 0;
+}
+.p2 .searchBtn .givFlex i {
+    font-size: 13px;
+    color: #a8afb7;
+}
+.space .part1-1 a {
+    padding-right: 15px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #2f81f7;
+}
+.space .part1-1 a:hover {
+    text-decoration: underline;
+}
+.space .part1-1 p {
+    padding: 0px 5px;
+    display: inline-block;
+    color: #848b86 ;
+    border: 1px solid #30363d ;
+    font-size: 12px;
+    border-radius: 335;
+}
+.repose .space {
+    display: flex;
+    justify-content: space-between;
+
+}
+.space .part2-2 {
+    display: flex;
+    align-items: center;
+}
+.space .part2-2 button.btn1 {
+    background: #21262d;
+    border: 1px solid #363b42;
+    align-items: center;
+    gap: 14px;
+    display: flex;
+    padding: 0 0 0 8px;
+}
+.space .part2-2 button.btn1 .p-p1:hover {
+    border: 1px solid #8b949e ;
+}
+.space .part2-2 button.btn1 .p-p1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.space .part2-2 button.btn1 .p-p2 button {
+    background: #21262d;
+    border: 0;
+    border-radius: 0;
+    border-left: 1px solid #363b42;
+}
+.space .part2-2 button:nth-child(2) i  {
+    font-size: 13px;
+}
+.father .part2-2 button p {
+    color: #c9d1d9;
+    margin: 0;
+    font-size: 13px;
+}
+.type .part1-1 p {
+    display: inline-block;
+    color: #848d97;
+    font-size: 13px;
+    
+}
+.type .part1-1 p:nth-child(2) {
+    padding-right: 20px;
+    padding-left: 5px;
+
+}
+.type .part1-1 div {
+    width: 13px;
+    height: 13px;
+    
+    border-radius: 50%;
+    display: inline-block;
+}
+.type .part1-1 div.yellow {
+    background-color: #F1E05C;
+}
+.type .part1-1 div.blue {
+    background-color: #3178c6;
+}
+.type .part1-1 div.purple{
+
+    background-color: #563d7c;
+
+}
+.type .part1-1 div.red {
+    background-color: #e34c26;
+}
+.type .part1-1 div.blueLight {
+    background-color: #2f81f7;
+}
+.type .part1-1 div.gray {
+    background-color: #555555;
+}
+.type .part1-1 div.orange {
+    background-color: #b07219;
+}
+
+.father {
+    border-bottom: 1px solid #21262d ;
+    margin: 20px 0;
+    padding-bottom: 20px;
+}
+.blog {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #21262d;
+}
+.blog a {
+    text-decoration: none;
+    color: #e6edf3;
+    font-size: 14px;
+    
+}
+.blog a:hover {
+    color:#2f81f7 ;
+    text-decoration: underline;
+}
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+.wrapper .showWhoIsLogin {
+    border-bottom: 1px solid #30363d ;
+}
+.wrapper .showWhoIsLogin .p1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 20px;
+}
+.wrapper .showWhoIsLogin .p1 img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+.p {
+    width: 100%;
+}
+.p .part1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 25px;
+    margin-top: 10px;
+    height: 210px;
+    overflow: hidden;
+}
+.headerForBorder {
+    width: 48%;
+    padding: 15px;
+    border: 1px solid #30363d;
+    border-radius: 7px;
+}
+.headerForBorder .part1-1 {
+    display: flex;
+    justify-content: space-between;
+}
+.part1-11 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+.part1-11 div {
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background-color: #f1e05a;
+}
+.part1-11 p {
+    color: #848d97;
+    font-size: 13px;
+    margin: 0;
+}
+.p .part2 .calendar {
+    overflow: hidden;
+    border-radius: 10px;
+    border: 1px solid #30363d;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px 10px 10px 0;
+}
+.p .part2 .calendar .flex1 ul li {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.p .part2 .calendar .flex1 ul li p {
+    margin: 0;
+    color: #848d97;
+    font-size: 12px;
+}
+.p .part2 .calendar .flex1 ul li div:nth-child(6) {
+    width: 10px;
+    height: 10px;
+    background-color: #39d353;
+    border-radius: 2px;
+}
+.p .part2 .calendar .flex1 ul li div:nth-child(5) {
+    width: 10px;
+    height: 10px;
+    background-color: #26a641;
+    border-radius: 2px;
+}
+.p .part2 .calendar .flex1 ul li div:nth-child(4) {
+    width: 10px;
+    height: 10px;
+    background-color: #006d32;
+    border-radius: 2px;
+}
+
+.p .part2 .calendar .flex1 ul li div:nth-child(3) {
+    width: 10px;
+    height: 10px;
+    background-color: #0e4429;
+    border-radius: 2px;
+}
+.p .part2 .calendar .flex1 ul li div:nth-child(2) {
+    width: 10px;
+    height: 10px;
+    background-color: #161b22;
+    border-radius: 2px;
+}
+.p .part2 .calendar .flex1 ul {
+    display: flex;
+    justify-content: space-between;
+}
+.p .part2 .calendar .flex1 ul li:nth-child(1) a {
+    font-size: 11.5px;
+    text-decoration: none;
+    color:#848d97;
+    margin-left: 25px;
+}
+.p .part2 .calendar .flex1 ul li:nth-child(1) a:hover {
+    color: #1a73f7;
+}
+.fffa {
+    margin-top: 40px;
+}
+.p .part3 {
+    margin-top: 30px;
+    
+}
+
+.p .part3 .year button {
+    background-color: #21262d;
+    color: #a6aeb6;
+    
+    border: 1px solid #363b42;
+    padding: 2px 10px;
+    border-radius: 5px;
+}
+
+
+.p .part3 .year button span {
+    color: #7c848f;
+}
+.p .part3 .year .yyy {
+    background-color:#161b22 ;
+    padding-left: 30px;
+    color: #c4cad1;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+}
+#input {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: none;
+}
+#input.yyy {
+    display: block;
+    
+    width: 20%;
+    direction: ltr;
+}
+.aaa {
+    position: relative;
+    direction: rtl;
+}
+.Contribution .name1 a {
+    color: #1a73f7 !important;
+}
+.Contribution .name1 a:hover {
+    color: #1a73f7 !important;
+    text-decoration: underline;
+}
+.p h6 {
+    color: #cfd6db;
+}
+.name2 div {
+    width: 200px;
+    height: 10px;
+    background-color: #006d32;
+    border-radius: 30px;
+}
+.Contribution {
+    border-top: 1px solid #30363d;
+    border-left: 1px solid #30363d;
+    padding: 30px 0 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    
+    
+}
+.ttt {
+    display: flex;
+    gap: 10px;
+}
+.ttt p {
+    color:#79828b;
+}
+.name2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 10px;
+}
+.ab {
+    position: absolute;
+    top: -12px;
+    left: -10px;
+     color: #cfd6db;
+     font-size: 13px;
+     background-color: #0d1117;
+     width: 90px;
+     height: 30px;
+}
+.ab2 {
+    
+        background-color: #21262d;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 26px;
+        left: -15px;
+    
+}
+.ab2 i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+}
+.all {
+    position: relative;
+    margin-top: 20px;
+}
+
+
+
+.abBlack::before {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.abBlack {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+.content {
+    background-color: #0d1117;
+    padding: 16px;
+    z-index: 2;
+    position: relative;
+    border: 1px solid #30363d;
+    border-radius: 10px;
+}
+
+.background .part1 button input {
+    width: 100%;
+}
+
+.background .part1 button input :is(:focus-visible) , .background .part1 button input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #fff;
+}
+
+.background .part1 button {
+    background-color: #0d1117;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    border-radius: 10px;
+    padding: 5px;
+    border: 1px solid #0d6efd;
+}
+
+.background .part1 button i {
+    color: #848d97;
+}
+.background .part2 p {
+        color: #e1e7ee;
+        margin: 0;
+}
+.background .part2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.part1 .headerForBorder .part1-1 p {
+    color: #848d8b !important;
+}
+
+.type .part1-1 .none {
+    display: none;
+    margin: 0 ;
+    padding: 0 ;
+    visibility: hidden;
+}
+
+.showWhoIsLogin h6 {
+    color: #e6edf3;
+}
+
+
+
+
+
+
+
+
+
+/* https://stitches.dev/ */
+/* https://www.frontendmentor.io/challenges */
+/* react portal
+modal component */
+/* https://stackoverflow.com/a/42234988 */
+/* detecting outside click modal react */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media only screen and (max-width: 1230px) {
+    .main {
+        padding: 0 60px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .main .flexing {
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .main :is(.p1 , .p2) {
+        width: 100%;
+    }
+    
+}

@@ -475,17 +475,27 @@ i.bi-github {
 }
 .wrapper .showWhoIsLogin {
     border-bottom: 1px solid #30363d ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 30px;
+
 }
 .wrapper .showWhoIsLogin .p1 {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding-bottom: 20px;
 }
+
 .wrapper .showWhoIsLogin .p1 img {
     width: 30px;
     height: 30px;
     border-radius: 50%;
+}
+.showWhoIsLogin .p2 {
+    display: flex;
+    gap: 20px;
+    align-items: center;
 }
 .p {
     width: 100%;
@@ -780,8 +790,62 @@ i.bi-github {
 
 .showWhoIsLogin h6 {
     color: #e6edf3;
+    margin: 0;
+}
+.showWhoIsLogin p {
+    color: #848b86;
+    margin: 0;
+    font-size: 13px;
+    border-radius: 10px;
+    border: 1px solid #2c3239;
+    padding: 3px;
+}
+.showWhoIsLogin .p2 button {
+    background-color: #21262d;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #363b42;
+}
+.showWhoIsLogin .p2 button div {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #30363d;
+}
+.showWhoIsLogin .p2 button span {
+    color: #c9d1ce;
+}
+.wrapper .part1 .header button {
+    background-color: #21262d;
+    border: 1px solid #363b42;
+}
+.container {
+    margin-top: 20px;
+}
+ .wrapper .part1 .header button {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.wrapper .part1 .header button i:nth-child(3) {
+    font-size: 10px;
 }
 
+.wrapper .part1 .header .p1 {
+    display: flex;
+    gap: 15px;
+}
+.wrapper .part1 .header .p1 div {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+.wrapper .part1 .header .p1 div span:nth-child(3) {
+    color: #848d97;
+}
 
 
 

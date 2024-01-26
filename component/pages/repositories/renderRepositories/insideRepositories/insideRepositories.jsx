@@ -10,6 +10,7 @@ import { responsiveArray } from "antd/es/_util/responsiveObserver"
 import { repositories } from "../../../../../api/RepositoresApi"
 import { branch } from "../../../../../api/branch"
 import { tags } from "../../../../../api/tags"
+import { commits } from "../../../../../api/commits"
 
 export default function InsideRepositories(props) {
 
@@ -29,6 +30,7 @@ const [isRepositoryLoaded , setIsRepositoryLoaded]= useState(false)
 const [test , setTest] = useState([])
 const [branch1 , setBranch1] = useState([])
 const [active , setActive] = useState("")
+const [commit , setCommit] = useState("")
 
 let param = useParams()
 let username  = param.username
@@ -36,13 +38,23 @@ let nameOfRepository = param.nameOfRepository
     
     let default_branch = res.default_branch
 
+
+    let url =  window.location.href
+    
+    let rep = url.replace(`localhost:1234` , "github.com")
+    
+    
     useEffect(() => {
 
-
+        commits(username , nameOfRepository , default_branch).then((e) => {
+            let count = e.length
+            setCommit(count)
+            console.log(e)
+        })
 
         tags(username , nameOfRepository ).then((e) =>{
             setTest(e.length)
-            console.log(e)
+            
         } )
 
 
@@ -71,16 +83,21 @@ let nameOfRepository = param.nameOfRepository
         // repositories(username).then((e) => {
         //     setTest(e)
         // })
+        
+        
 
+        
+        
         branch(username , nameOfRepository).then((e) => {
+            // let a = e.length
             setBranch1(e.length)
             
         })
 
-        
-
-       
     } , [])
+    
+            
+        
     
     useEffect(() => {
         if(isRepositoryLoaded) {
@@ -89,6 +106,7 @@ let nameOfRepository = param.nameOfRepository
                 
                 
                 let tree = e.tree
+                
                 setRes2(tree)
 
 
@@ -219,12 +237,25 @@ let nameOfRepository = param.nameOfRepository
                                     <h6>GitHub CLI</h6>
                                 </div>
                                 <div className="pp2">
-                                    <input className="input"/>
+                                    <input value={`${rep}.git`} className="input"/>
+                                    <p>Clone using the web URL.</p>
                                 </div>
-                                <div className="pp3"></div>
+                                
                             </div>
-                            <div className="p-4"></div>
-                            <div className="p-5"></div>
+                            <div className="p-44">
+                                <div className="popopo">
+                                    <i className="fa-solid fa-download"></i>
+                                    <h6>Open with GitHub Desktop</h6>
+                                </div>
+                                
+                            </div>
+                            <div className="p-55">
+                                <div className="popopo">
+                                    <i className="fa-solid fa-file-zipper"></i>
+                                    <h6>Download ZIP</h6>
+                                </div>
+                                
+                            </div>
                         </div>
                         </div>
                     </div>

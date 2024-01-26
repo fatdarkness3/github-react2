@@ -987,9 +987,56 @@ i.bi-github {
     
 }
 
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp2 input {
+    border: 1px solid #30363d;
+    border-radius: 5px;
+    font-size: 14px;
+    padding-right: 15px;
+    color: #fff;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp2 p {
+    color: #7d8590;
+    margin-top: 10px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-44 {
+    border-top: 1px solid ;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-44 .popopo {
+    display: flex;
+    padding-top: 0;
+    gap: 15px;
+    padding-left: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
 
+.wrapper .part1 .header .p2 .addres div.active .p-44 .popopo h6 {
+    color: #fff !important;
+    
 
+}
 
+.wrapper .part1 .header .p2 .addres div.active .p-55 {
+    border-top: 1px solid ;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-55 .popopo {
+    display: flex;
+    padding-top: 0;
+    gap: 15px;
+    padding-left: 16px;
+    margin-top: 20px;
+    /* align-items: center; */
+    margin-bottom: 20px;
+    
+}
+.wrapper .part1 .header .p2 .addres div.active .p-55 .popopo h6 {
+    color: #fff !important;
+    font-size: 14px;
+
+margin: 0;}
 /* https://stitches.dev/ */
 /* https://www.frontendmentor.io/challenges */
 /* react portal

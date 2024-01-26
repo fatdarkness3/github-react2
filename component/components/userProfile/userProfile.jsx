@@ -39,7 +39,7 @@ export default function UserProfile(props) {
         // followersApi(params).then((e) => {
         //     setTest(e)
         // })
-        // console.log(test)
+        
     } , [])
  
     

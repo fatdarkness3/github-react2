@@ -39,7 +39,7 @@ export default function RepositoryPage() {
 
         api(getUserFromParams).then((e) => {
             setTest(e.name)
-            console.log(test)
+            
         })
 
         

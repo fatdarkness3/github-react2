@@ -8,6 +8,7 @@ import "../../../../../styles/style.css"
 import { api } from "../../../../../api/userInfo"
 import { responsiveArray } from "antd/es/_util/responsiveObserver"
 import { repositories } from "../../../../../api/RepositoresApi"
+import { branch } from "../../../../../api/branch"
 
 export default function InsideRepositories(props) {
 
@@ -25,6 +26,7 @@ const [res2 , setRes2] = useState([])
 const [req , setReq] = useState({})
 const [isRepositoryLoaded , setIsRepositoryLoaded]= useState(false)
 const [test , setTest] = useState([])
+const [branch1 , setBranch1] = useState([])
 
 let param = useParams()
 let username  = param.username
@@ -35,7 +37,7 @@ let nameOfRepository = param.nameOfRepository
     useEffect(() => {
 
         insideRepositories(username , nameOfRepository).then((e) => {
-            
+           
             setRes(e)
             setIsRepositoryLoaded(true)
         })
@@ -55,20 +57,25 @@ let nameOfRepository = param.nameOfRepository
 
 
 
-        repositories(username).then((e) => {
-            setTest(e)
+        // repositories(username).then((e) => {
+        //     setTest(e)
+        // })
+
+        branch(username , nameOfRepository).then((e) => {
+            setBranch1(e.length)
+            console.log(branch1)
         })
 
 
 
-
+       
     } , [])
     
     useEffect(() => {
         if(isRepositoryLoaded) {
             pushFilesJs( username , nameOfRepository , default_branch ).then((e) => {
             
-            
+                
                 
                 let tree = e.tree
                 setRes2(tree)
@@ -77,8 +84,14 @@ let nameOfRepository = param.nameOfRepository
             })
         }
         
-
+        
     } , [isRepositoryLoaded])
+
+    
+            
+        
+   
+
 
     return (
         <>
@@ -91,9 +104,67 @@ let nameOfRepository = param.nameOfRepository
                     <img src={req.avatar_url}/>
                     
                     <h6>{nameOfRepository}</h6>
-                    <p>{}</p>
+                    <p>{res.private == false ? "Public" : "private"}</p>
                 </div>
-                <div className="p2"></div>
+                <div className="p2">
+                    <button className="btn btn-secondary btn-sm">
+                        <i class="fa-solid fa-thumbtack"></i>
+                        <span>Pin</span>
+                    </button>
+                    <button className="btn btn-secondary btn-sm">
+                        <i class="fa-regular fa-eye"></i>
+                        <span>Watch</span>
+                        <div>
+                            <span>{res.subscribers_count}</span>
+                        </div>
+                        <i class="fa-solid fa-sort-down"></i>
+                    </button>
+                    <button className="btn btn-secondary btn-sm">
+                        <i class="fa-brands fa-pushed"></i>
+                        <span>Fork</span>
+                        <div>
+                            <span>{res.forks_count}</span>
+                            
+                        </div>
+                        <i class="fa-solid fa-sort-down"></i>
+                    </button>
+                    <button className="btn btn-secondary btn-sm">
+                        <i class="fa-regular fa-star"></i>
+                        <span>star</span>
+                        <div>
+                            <span>{res.stargazers_count}</span>
+                        </div>
+                        <i class="fa-solid fa-sort-down"></i>
+                    </button>
+                </div>
+            </div>
+            <div className="container">
+            <div className="part1">
+                <div className="header">
+                    <div className="p1">
+                        <button className="btn btn-secondary btn-sm">
+                            <i class="fa-brands fa-pushed"></i>
+                            <span>{res.default_branch}</span>
+                            <i class="fa-solid fa-sort-down"></i>
+                        </button>
+                        <div className="d1">
+                            <i class="fa-brands fa-pushed"></i>
+                            <span>{branch1}</span>
+                            <span className="someColors">Branches</span>
+                        </div>
+                        <div className="d2">
+                            <i class="fa-solid fa-thumbtack"></i>
+                            
+                        </div>
+                    </div>
+                    
+                    <div className="p2">
+                        
+                    </div>
+                </div>
+                <div className="main"></div>
+            </div>
+            <div className="part2"></div>
             </div>
         {res2.map((e) => {
             

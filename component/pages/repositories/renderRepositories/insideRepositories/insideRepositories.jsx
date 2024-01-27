@@ -11,6 +11,10 @@ import { repositories } from "../../../../../api/RepositoresApi"
 import { branch } from "../../../../../api/branch"
 import { tags } from "../../../../../api/tags"
 import { commits } from "../../../../../api/commits"
+import moment from "moment"
+import { commit } from "../../../../../api/commit"
+import Moment from "react-moment"
+
 
 export default function InsideRepositories(props) {
 
@@ -30,7 +34,11 @@ const [isRepositoryLoaded , setIsRepositoryLoaded]= useState(false)
 const [test , setTest] = useState([])
 const [branch1 , setBranch1] = useState([])
 const [active , setActive] = useState("")
-const [commit , setCommit] = useState("")
+const [commitmessage , setMessageCommit] = useState([])
+const [time , setTime] = useState([])
+const [commitsLenghts , setCommitsLenghts] = useState([])
+const [obj1 , setobj] = useState({})
+
 
 let param = useParams()
 let username  = param.username
@@ -44,13 +52,13 @@ let nameOfRepository = param.nameOfRepository
     let rep = url.replace(`localhost:1234` , "github.com")
     
     
+    
+
+    
+    
     useEffect(() => {
 
-        commits(username , nameOfRepository , default_branch).then((e) => {
-            let count = e.length
-            setCommit(count)
-            console.log(e)
-        })
+       
 
         tags(username , nameOfRepository ).then((e) =>{
             setTest(e.length)
@@ -72,7 +80,7 @@ let nameOfRepository = param.nameOfRepository
         
         api(username).then((e) => {
 
-
+            
             setReq(e)
             
             
@@ -94,6 +102,9 @@ let nameOfRepository = param.nameOfRepository
             
         })
 
+
+
+        
     } , [])
     
             
@@ -111,14 +122,33 @@ let nameOfRepository = param.nameOfRepository
 
 
             })
+
+            commit(username , nameOfRepository).then(( e ) => {
+                
+                
+                    setCommitsLenghts(e.length)
+            })
+            
+            commits(username , nameOfRepository , default_branch).then((e) => {
+                
+                
+                console.log(e)
+                setMessageCommit(e.commit.message)
+                setTime(e.commit.committer.date)                    
+                setobj(e)
+                
+            })
+            
+            let sha = obj1.sha
+            
         }
         
         
     } , [isRepositoryLoaded])
 
     
-            
         
+    
    
 
 
@@ -260,16 +290,56 @@ let nameOfRepository = param.nameOfRepository
                         </div>
                     </div>
                 </div>
-                <div className="main"></div>
+
+
+
+
+
+
+
+                {/* https://developer.mozilla.org/en-US/docs/Web/API/URL/URL */}
+
+
+
+
+
+
+
+
+
+                <div className="main">
+                            <div className="p-11">
+                                <div className="p-e">
+                                    <img src={req.avatar_url}/>
+                                    <span>{req.login}</span>
+                                    <span>{commitmessage}</span>
+                                </div>
+                                <div className="p-e2">
+                                    <span><Moment toNow>{time}</Moment></span>
+                                    <div className="peyvand">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <span> {commitsLenghts} Commits</span>
+                                    </div>
+                                    
+
+                                </div>
+                            </div>
+                            <div className="p-22">
+                                {res2.map((e) => {
+                                    
+                                    return <InsideRepositoriesComponent time = {time} commitmessage = {commitmessage}  path = {e.path}/> 
+                                   
+                                    
+                                })}
+                                
+                            </div>
+                    
+                        
+                </div>
             </div>
             <div className="part2"></div>
             </div>
-        {res2.map((e) => {
-            
-            
-          return <InsideRepositoriesComponent path = {e.path}/>  
-            
-        })}
+       
         </div>
         
           

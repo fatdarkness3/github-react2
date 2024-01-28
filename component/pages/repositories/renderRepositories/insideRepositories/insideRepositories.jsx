@@ -6,14 +6,13 @@ import InsideRepositoriesComponent from "../../../../components/insideRepositori
 import HeaderForInsiderepositories from "../../../../components/headerForInsiderepositories/headerForInsideRepositories"
 import "../../../../../styles/style.css"
 import { api } from "../../../../../api/userInfo"
-import { responsiveArray } from "antd/es/_util/responsiveObserver"
-import { repositories } from "../../../../../api/RepositoresApi"
 import { branch } from "../../../../../api/branch"
 import { tags } from "../../../../../api/tags"
 import { commits } from "../../../../../api/commits"
-import moment from "moment"
 import { commit } from "../../../../../api/commit"
 import Moment from "react-moment"
+import { languages } from "../../../../../api/languege"
+
 
 
 export default function InsideRepositories(props) {
@@ -37,7 +36,9 @@ const [active , setActive] = useState("")
 const [commitmessage , setMessageCommit] = useState([])
 const [time , setTime] = useState([])
 const [commitsLenghts , setCommitsLenghts] = useState([])
-const [obj1 , setobj] = useState({})
+// const [obj1 , setobj] = useState({})
+const [readMe1 , setReadMe] = useState([])
+
 
 
 let param = useParams()
@@ -102,7 +103,10 @@ let nameOfRepository = param.nameOfRepository
             
         })
 
-
+        
+       languages(username , nameOfRepository).then((e) => {
+        console.log(e)
+       })
 
         
     } , [])
@@ -132,14 +136,14 @@ let nameOfRepository = param.nameOfRepository
             commits(username , nameOfRepository , default_branch).then((e) => {
                 
                 
-                console.log(e)
+                
                 setMessageCommit(e.commit.message)
                 setTime(e.commit.committer.date)                    
-                setobj(e)
+                
                 
             })
             
-            let sha = obj1.sha
+            
             
         }
         
@@ -191,7 +195,7 @@ let nameOfRepository = param.nameOfRepository
                         <i class="fa-regular fa-star"></i>
                         <span>star</span>
                         <div>
-                            <span>{res.stargazers_count}</span>
+                            <span>{res.stargazers_count}</span>  
                         </div>
                         <i class="fa-solid fa-sort-down"></i>
                     </button>
@@ -221,7 +225,7 @@ let nameOfRepository = param.nameOfRepository
                     <div className="p2">
                         <button>
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input className="input" id="iii" placeholder="Go to file"/>
+                            <input id="iii" placeholder="Go to file"/>
                         </button>
                         <button>
                             <span>Add file</span>
@@ -336,8 +340,76 @@ let nameOfRepository = param.nameOfRepository
                     
                         
                 </div>
+                <div className="readMe">
+
+                </div>
             </div>
-            <div className="part2"></div>
+
+            <div className="part2">
+                <div className="pr1">
+                    <div className="p1 ">
+                        <h6>About</h6>
+                    </div>
+                    <div className="p2 ">
+                        <p>No description, website, or topics provided.</p>
+                    </div>
+                    <div className="p3">
+                        <div className="pqq1 pqq">
+                            <a href="#">
+                                <i class="fa-brands fa-readme"></i>
+                                <span>Readme</span>
+                            </a>
+                        </div>
+                        <div className="pqq2 pqq">
+                            <a href="#">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <span>Activity</span>
+                            </a>
+                        </div>
+                        <div className="pqq3 pqq">
+                            <a href="#">
+                            <i class="fa-regular fa-star"></i>
+                            <span>{res.stargazers_count} stars</span>
+                            </a>
+                        </div>
+                        <div className="pqq4 pqq">
+                            <a href="#">
+                                <i class="fa-regular fa-eye"></i>
+                                <span>{res.subscribers_count} Watch</span>
+                            </a>
+                        </div>
+                        <div className="pqq5 pqq">
+                            <a href="#">
+                                <i class="fa-solid fa-code-pull-request"></i>
+                                <span>{res.forks_count} Fork</span>
+                            </a>
+                            
+                        </div>
+                        <div className="pqq6 pqq">
+                            <a href="#">
+                                <span>Report repository</span>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div className="pr2">
+                    <a href="#">
+                        <h6>Releases</h6>
+                    </a>
+                    <span>No releases published</span>
+                </div>
+                <div className="pr3">
+                    <a href="#">
+                        <h6>Packages</h6>
+                    </a>
+                    <span>No packages published</span>
+                </div>
+                {/* <div className="pr4">
+                    <h6>Languages</h6>
+
+                </div> */}
+            </div>
             </div>
        
         </div>

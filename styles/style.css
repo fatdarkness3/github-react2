@@ -827,6 +827,7 @@ i.bi-github {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 140px;
 }
  .wrapper .part1 .header button {
     display: flex;
@@ -913,6 +914,12 @@ i.bi-github {
     display: flex;
     align-items: center;
     gap: 10px;
+}
+.wrapper .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0;
 }
 .wrapper .part1 .header .p2 .addres div.active .p-1  .ce1  {
     display: flex;
@@ -1072,11 +1079,99 @@ i.bi-github {
     background-color: #161b22;
     padding: 20px 0;
     border-bottom: 1px solid #30363d;
+    padding: 20px 20px;
 }
 
+.container .part1 .main .p-22 .flex123 {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    gap: 8px;
+    
+}
+.container .part1 .main .p-22 .fff h3 {
+    color: #e6edf3;
+    font-size: 13px;
+    margin: 0;
+}
+.container .part1 .main .p-22 .fff .cce span {
+    color: #848d97;
+}
+.container .part1 .main .p-22 .fff {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    padding: 10px 10px;
+    align-items: center;
+}
+.container .part1 .main .p-22 .fff .moment span.l {
+    color: #848d97;
+}
+.container .part2 .pr1 .p1 h6 {
+    color: #fff;
+}   
+.container .part2 .pr1 .p2 p {
+    color: #848d97;
+    font-style: italic;
+}
 
+.container .part2 .pr1 a {
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 90px;
+}
+.container .part2 .pr1 a i {
+    width: 20px;
+}
+.container .part2 .pr1 a i , .container .part2 .pr1 a span {
+    
+    color: #848d97;
+}
+.container .part2 .pr1 .pqq a:hover span , .container .part2 .pr1 .pqq a:hover i{
+    color: #0d6efd !important;
+    
+}
+.part2 .pr1 .p3 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+.container .part2 .pr1 .pqq6 a {
+    width: 100%;
+}
+.container .part2 .pr1 {
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 15px;
+}
+.container .part2 .pr2 , .container .part2 .pr3 {
+    border-bottom: 1px solid #21262d;
+    padding: 15px 0;
+}
+.container .part2 .pr2 a , .container .part2 .pr3 a {
+    text-decoration: none;
+    color: #fff;
+}
+.container .part2 .pr2 a:hover h6 , .container .part2 .pr3 a:hover h6 {
+    
+    color: #0d6efd;
+}
+.container .part2 .pr2 span , .container .part2 .pr3 span {
+    color: #848d97;
+    font-size: 13px;
+}
 
+#iii {
+    border: none;
+    background-color: #0d1117;
+    color: #FFF;
 
+}
+#iii:focus-visible {
+    outline: none;
+}
 
 
 

@@ -1,3 +1,4 @@
+import Moment from "react-moment"
 import { Link } from "react-router-dom"
 
 export default function RenderRepose(props) {
@@ -41,7 +42,7 @@ export default function RenderRepose(props) {
                     <p className={!props.language ? "none" : null}>{props.language}</p>
 
 
-                    <p>{props.pushed_at}</p>
+                    <p><Moment fromNow>{props.pushed_at}</Moment></p>
                 </div>
                 
             </div>

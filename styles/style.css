@@ -827,6 +827,7 @@ i.bi-github {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 140px;
 }
  .wrapper .part1 .header button {
     display: flex;
@@ -914,6 +915,12 @@ i.bi-github {
     align-items: center;
     gap: 10px;
 }
+.wrapper .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 0;
+}
 .wrapper .part1 .header .p2 .addres div.active .p-1  .ce1  {
     display: flex;
     justify-content: center;
@@ -986,6 +993,188 @@ i.bi-github {
     cursor: pointer;
     
 }
+
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp2 input {
+    border: 1px solid #30363d;
+    border-radius: 5px;
+    font-size: 14px;
+    padding-right: 15px;
+    color: #fff;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp2 p {
+    color: #7d8590;
+    margin-top: 10px;
+    font-size: 14px;
+    margin-bottom: 0;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-44 {
+    border-top: 1px solid ;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-44 .popopo {
+    display: flex;
+    padding-top: 0;
+    gap: 15px;
+    padding-left: 16px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    
+}
+
+.wrapper .part1 .header .p2 .addres div.active .p-44 .popopo h6 {
+    color: #fff !important;
+    
+
+}
+
+.wrapper .part1 .header .p2 .addres div.active .p-55 {
+    border-top: 1px solid ;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-55 .popopo {
+    display: flex;
+    padding-top: 0;
+    gap: 15px;
+    padding-left: 16px;
+    margin-top: 20px;
+    /* align-items: center; */
+    margin-bottom: 20px;
+    
+}
+.wrapper .part1 .header .p2 .addres div.active .p-55 .popopo h6 {
+    color: #fff !important;
+    font-size: 14px;
+
+    margin: 0;
+}
+
+.container .part1 .main {
+    border: 1px solid #30363d;
+    margin-top: 30px;
+    border-radius: 10px;
+    
+}
+.container .part1 .main .p-11 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.container .part1 .main .p-11 .p-e {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.container .part1 .main .p-11 .p-e span:nth-child(3) {
+    color: #848d97;
+}
+.container .part1 .main .p-11 .p-e img {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+.container .part1 .main .p-11 .p-e2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.container .part1 .main .p-11 {
+    background-color: #161b22;
+    padding: 20px 0;
+    border-bottom: 1px solid #30363d;
+    padding: 20px 20px;
+}
+
+.container .part1 .main .p-22 .flex123 {
+    display: flex;
+    align-items: center;
+    width: 30%;
+    gap: 8px;
+    
+}
+.container .part1 .main .p-22 .fff h3 {
+    color: #e6edf3;
+    font-size: 13px;
+    margin: 0;
+}
+.container .part1 .main .p-22 .fff .cce span {
+    color: #848d97;
+}
+.container .part1 .main .p-22 .fff {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid;
+    padding: 10px 10px;
+    align-items: center;
+}
+.container .part1 .main .p-22 .fff .moment span.l {
+    color: #848d97;
+}
+.container .part2 .pr1 .p1 h6 {
+    color: #fff;
+}   
+.container .part2 .pr1 .p2 p {
+    color: #848d97;
+    font-style: italic;
+}
+
+.container .part2 .pr1 a {
+    text-decoration: none;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 90px;
+}
+.container .part2 .pr1 a i {
+    width: 20px;
+}
+.container .part2 .pr1 a i , .container .part2 .pr1 a span {
+    
+    color: #848d97;
+}
+.container .part2 .pr1 .pqq a:hover span , .container .part2 .pr1 .pqq a:hover i{
+    color: #0d6efd !important;
+    
+}
+.part2 .pr1 .p3 {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+}
+.container .part2 .pr1 .pqq6 a {
+    width: 100%;
+}
+.container .part2 .pr1 {
+    border-bottom: 1px solid #21262d;
+    padding-bottom: 15px;
+}
+.container .part2 .pr2 , .container .part2 .pr3 {
+    border-bottom: 1px solid #21262d;
+    padding: 15px 0;
+}
+.container .part2 .pr2 a , .container .part2 .pr3 a {
+    text-decoration: none;
+    color: #fff;
+}
+.container .part2 .pr2 a:hover h6 , .container .part2 .pr3 a:hover h6 {
+    
+    color: #0d6efd;
+}
+.container .part2 .pr2 span , .container .part2 .pr3 span {
+    color: #848d97;
+    font-size: 13px;
+}
+
+#iii {
+    border: none;
+    background-color: #0d1117;
+    color: #FFF;
+
+}
+#iii:focus-visible {
+    outline: none;
+}
+
+
+
 
 
 

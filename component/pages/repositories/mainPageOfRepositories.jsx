@@ -39,7 +39,7 @@ export default function RepositoryPage() {
 
         api(getUserFromParams).then((e) => {
             setTest(e.name)
-            console.log(test)
+            
         })
 
         
@@ -101,7 +101,7 @@ export default function RepositoryPage() {
                                                 let result1 = new Date(e.updated_at).toLocaleDateString('en-GB');
                                             
                                                 
-                                                return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {result1} language = {e.language} type={e.private} name={e.name}/>
+                                                return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {e.updated_at} language = {e.language} type={e.private} name={e.name}/>
                                             }else if (searchValue == "" || !searchValue) {
                                                 let result1 = new Date(e.updated_at).toLocaleDateString('en-GB');
                                                 return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {result1} language = {e.language} type={e.private} name={e.name}/>

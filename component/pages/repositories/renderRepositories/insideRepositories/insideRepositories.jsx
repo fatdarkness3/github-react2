@@ -6,10 +6,14 @@ import InsideRepositoriesComponent from "../../../../components/insideRepositori
 import HeaderForInsiderepositories from "../../../../components/headerForInsiderepositories/headerForInsideRepositories"
 import "../../../../../styles/style.css"
 import { api } from "../../../../../api/userInfo"
-import { responsiveArray } from "antd/es/_util/responsiveObserver"
-import { repositories } from "../../../../../api/RepositoresApi"
 import { branch } from "../../../../../api/branch"
 import { tags } from "../../../../../api/tags"
+import { commits } from "../../../../../api/commits"
+import { commit } from "../../../../../api/commit"
+import Moment from "react-moment"
+import { languages } from "../../../../../api/languege"
+
+
 
 export default function InsideRepositories(props) {
 
@@ -29,6 +33,13 @@ const [isRepositoryLoaded , setIsRepositoryLoaded]= useState(false)
 const [test , setTest] = useState([])
 const [branch1 , setBranch1] = useState([])
 const [active , setActive] = useState("")
+const [commitmessage , setMessageCommit] = useState([])
+const [time , setTime] = useState([])
+const [commitsLenghts , setCommitsLenghts] = useState([])
+// const [obj1 , setobj] = useState({})
+const [readMe1 , setReadMe] = useState([])
+
+
 
 let param = useParams()
 let username  = param.username
@@ -36,13 +47,23 @@ let nameOfRepository = param.nameOfRepository
     
     let default_branch = res.default_branch
 
+
+    let url =  window.location.href
+    
+    let rep = url.replace(`localhost:1234` , "github.com")
+    
+    
+    
+
+    
+    
     useEffect(() => {
 
-
+       
 
         tags(username , nameOfRepository ).then((e) =>{
             setTest(e.length)
-            console.log(e)
+            
         } )
 
 
@@ -60,7 +81,7 @@ let nameOfRepository = param.nameOfRepository
         
         api(username).then((e) => {
 
-
+            
             setReq(e)
             
             
@@ -71,16 +92,27 @@ let nameOfRepository = param.nameOfRepository
         // repositories(username).then((e) => {
         //     setTest(e)
         // })
+        
+        
 
+        
+        
         branch(username , nameOfRepository).then((e) => {
+            // let a = e.length
             setBranch1(e.length)
             
         })
 
         
+       languages(username , nameOfRepository).then((e) => {
+        console.log(e)
+       })
 
-       
+        
     } , [])
+    
+            
+        
     
     useEffect(() => {
         if(isRepositoryLoaded) {
@@ -89,18 +121,38 @@ let nameOfRepository = param.nameOfRepository
                 
                 
                 let tree = e.tree
+                
                 setRes2(tree)
 
 
             })
+
+            commit(username , nameOfRepository).then(( e ) => {
+                
+                
+                    setCommitsLenghts(e.length)
+            })
+            
+            commits(username , nameOfRepository , default_branch).then((e) => {
+                
+                
+                
+                setMessageCommit(e.commit.message)
+                setTime(e.commit.committer.date)                    
+                
+                
+            })
+            
+            
+            
         }
         
         
     } , [isRepositoryLoaded])
 
     
-            
         
+    
    
 
 
@@ -143,7 +195,7 @@ let nameOfRepository = param.nameOfRepository
                         <i class="fa-regular fa-star"></i>
                         <span>star</span>
                         <div>
-                            <span>{res.stargazers_count}</span>
+                            <span>{res.stargazers_count}</span>  
                         </div>
                         <i class="fa-solid fa-sort-down"></i>
                     </button>
@@ -173,7 +225,7 @@ let nameOfRepository = param.nameOfRepository
                     <div className="p2">
                         <button>
                             <i class="fa-solid fa-magnifying-glass"></i>
-                            <input className="input" id="iii" placeholder="Go to file"/>
+                            <input id="iii" placeholder="Go to file"/>
                         </button>
                         <button>
                             <span>Add file</span>
@@ -219,26 +271,147 @@ let nameOfRepository = param.nameOfRepository
                                     <h6>GitHub CLI</h6>
                                 </div>
                                 <div className="pp2">
-                                    <input className="input"/>
+                                    <input value={`${rep}.git`} className="input"/>
+                                    <p>Clone using the web URL.</p>
                                 </div>
-                                <div className="pp3"></div>
+                                
                             </div>
-                            <div className="p-4"></div>
-                            <div className="p-5"></div>
+                            <div className="p-44">
+                                <div className="popopo">
+                                    <i className="fa-solid fa-download"></i>
+                                    <h6>Open with GitHub Desktop</h6>
+                                </div>
+                                
+                            </div>
+                            <div className="p-55">
+                                <div className="popopo">
+                                    <i className="fa-solid fa-file-zipper"></i>
+                                    <h6>Download ZIP</h6>
+                                </div>
+                                
+                            </div>
                         </div>
                         </div>
                     </div>
                 </div>
-                <div className="main"></div>
+
+
+
+
+
+
+
+                {/* https://developer.mozilla.org/en-US/docs/Web/API/URL/URL */}
+
+
+
+
+
+
+
+
+
+                <div className="main">
+                            <div className="p-11">
+                                <div className="p-e">
+                                    <img src={req.avatar_url}/>
+                                    <span>{req.login}</span>
+                                    <span>{commitmessage}</span>
+                                </div>
+                                <div className="p-e2">
+                                    <span><Moment toNow>{time}</Moment></span>
+                                    <div className="peyvand">
+                                        <i class="fa-regular fa-clock"></i>
+                                        <span> {commitsLenghts} Commits</span>
+                                    </div>
+                                    
+
+                                </div>
+                            </div>
+                            <div className="p-22">
+                                {res2.map((e) => {
+                                    
+                                    return <InsideRepositoriesComponent time = {time} commitmessage = {commitmessage}  path = {e.path}/> 
+                                   
+                                    
+                                })}
+                                
+                            </div>
+                    
+                        
+                </div>
+                <div className="readMe">
+
+                </div>
             </div>
-            <div className="part2"></div>
+
+            <div className="part2">
+                <div className="pr1">
+                    <div className="p1 ">
+                        <h6>About</h6>
+                    </div>
+                    <div className="p2 ">
+                        <p>No description, website, or topics provided.</p>
+                    </div>
+                    <div className="p3">
+                        <div className="pqq1 pqq">
+                            <a href="#">
+                                <i class="fa-brands fa-readme"></i>
+                                <span>Readme</span>
+                            </a>
+                        </div>
+                        <div className="pqq2 pqq">
+                            <a href="#">
+                                <i class="fa-solid fa-chart-line"></i>
+                                <span>Activity</span>
+                            </a>
+                        </div>
+                        <div className="pqq3 pqq">
+                            <a href="#">
+                            <i class="fa-regular fa-star"></i>
+                            <span>{res.stargazers_count} stars</span>
+                            </a>
+                        </div>
+                        <div className="pqq4 pqq">
+                            <a href="#">
+                                <i class="fa-regular fa-eye"></i>
+                                <span>{res.subscribers_count} Watch</span>
+                            </a>
+                        </div>
+                        <div className="pqq5 pqq">
+                            <a href="#">
+                                <i class="fa-solid fa-code-pull-request"></i>
+                                <span>{res.forks_count} Fork</span>
+                            </a>
+                            
+                        </div>
+                        <div className="pqq6 pqq">
+                            <a href="#">
+                                <span>Report repository</span>
+                            </a>
+                        </div>
+                        
+                    </div>
+                </div>
+                <div className="pr2">
+                    <a href="#">
+                        <h6>Releases</h6>
+                    </a>
+                    <span>No releases published</span>
+                </div>
+                <div className="pr3">
+                    <a href="#">
+                        <h6>Packages</h6>
+                    </a>
+                    <span>No packages published</span>
+                </div>
+                {/* <div className="pr4">
+                    <h6>Languages</h6>
+
+                </div> */}
             </div>
-        {res2.map((e) => {
-            
-            
-          return <InsideRepositoriesComponent path = {e.path}/>  
-            
-        })}
+            </div>
+       
         </div>
         
           

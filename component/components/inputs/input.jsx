@@ -5,7 +5,6 @@ import { useParams } from "react-router-dom";
 export default function Input() {
 
     const [set , setSet] = useState("")
-    console.log(set)
     let params = useParams()
 
     let pathanem = ( window.location.pathname);

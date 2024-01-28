@@ -166,6 +166,6 @@ export default function PinAndEse(props) {
 // function a () {
 //   let s= [1,2,3,100,5,6,7,8,10,9]
 //   let b = Math.max.apply(null,s)
-//   console.log(b)
+//   
 // }
 // a()

@@ -13,7 +13,7 @@ export default function UserProfile(props) {
     // let b = cont.rec1
     
     let [rec , setSet] = useState("")
-    let [test , setTest] = useState([])
+    // let [test , setTest] = useState([])
     let params = props.params
     
     let obj = {
@@ -39,7 +39,7 @@ export default function UserProfile(props) {
         // followersApi(params).then((e) => {
         //     setTest(e)
         // })
-        // console.log(test)
+        
     } , [])
  
     

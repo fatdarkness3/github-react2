@@ -9,6 +9,7 @@ import { api } from "../../../../../api/userInfo"
 import { responsiveArray } from "antd/es/_util/responsiveObserver"
 import { repositories } from "../../../../../api/RepositoresApi"
 import { branch } from "../../../../../api/branch"
+import { tags } from "../../../../../api/tags"
 
 export default function InsideRepositories(props) {
 
@@ -27,6 +28,7 @@ const [req , setReq] = useState({})
 const [isRepositoryLoaded , setIsRepositoryLoaded]= useState(false)
 const [test , setTest] = useState([])
 const [branch1 , setBranch1] = useState([])
+const [active , setActive] = useState("")
 
 let param = useParams()
 let username  = param.username
@@ -35,6 +37,15 @@ let nameOfRepository = param.nameOfRepository
     let default_branch = res.default_branch
 
     useEffect(() => {
+
+
+
+        tags(username , nameOfRepository ).then((e) =>{
+            setTest(e.length)
+            console.log(e)
+        } )
+
+
 
         insideRepositories(username , nameOfRepository).then((e) => {
            
@@ -63,10 +74,10 @@ let nameOfRepository = param.nameOfRepository
 
         branch(username , nameOfRepository).then((e) => {
             setBranch1(e.length)
-            console.log(branch1)
+            
         })
 
-
+        
 
        
     } , [])
@@ -154,12 +165,68 @@ let nameOfRepository = param.nameOfRepository
                         </div>
                         <div className="d2">
                             <i class="fa-solid fa-thumbtack"></i>
-                            
+                            <span>{test}</span>
+                            <span className="someColors">Tags</span>
                         </div>
                     </div>
                     
                     <div className="p2">
-                        
+                        <button>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            <input className="input" id="iii" placeholder="Go to file"/>
+                        </button>
+                        <button>
+                            <span>Add file</span>
+                            <i class="fa-solid fa-sort-down"></i>
+                        </button>
+                        <div className="addres">
+                        <button className="button green"  onClick={() => {
+
+                                setActive(!active)
+
+                        }}>
+ 
+                            <i class="fa-solid fa-code"></i>
+                            <span>Code</span>
+                            <i class="fa-solid fa-sort-down"></i>
+
+                        </button>
+                        <div className= {active ? "active" : "notActive"}>
+                            
+                            <div className="p-1">
+                                <div className="ce1">
+                                    <span>Local</span>
+                                </div>
+                                <div className="ce2">
+                                    <span>Codespaces</span>
+                                </div>
+                            
+                            </div>
+                            <div className="p-2">
+                                <div className="pp1">
+                                    <i className="fa-solid fa-terminal"></i>
+                                    <span>Clone</span> 
+                                </div>
+                                <div className="pp2">
+                                    <span>?</span>
+                                </div>
+                               
+                            </div>
+                            <div className="p-3">
+                                <div className="pp1">
+                                    <h6>HTTPS</h6>
+                                    <h6>SSH</h6>
+                                    <h6>GitHub CLI</h6>
+                                </div>
+                                <div className="pp2">
+                                    <input className="input"/>
+                                </div>
+                                <div className="pp3"></div>
+                            </div>
+                            <div className="p-4"></div>
+                            <div className="p-5"></div>
+                        </div>
+                        </div>
                     </div>
                 </div>
                 <div className="main"></div>

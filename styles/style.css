@@ -823,12 +823,18 @@ i.bi-github {
 .container {
     margin-top: 20px;
 }
+.wrapper .part1 .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
  .wrapper .part1 .header button {
     display: flex;
     gap: 10px;
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
+    background-color: #0d1117;
 }
 .wrapper .part1 .header button i:nth-child(3) {
     font-size: 10px;
@@ -846,10 +852,140 @@ i.bi-github {
 .wrapper .part1 .header .p1 div span:nth-child(3) {
     color: #848d97;
 }
+.input#iii {
+    background-color: #0d1117;
+}
 
 
+.wrapper .part1 .header .p2 button:nth-child(2) {
+    background-color: #21262d;
+    border: 1px solid #363b42;
+    border-radius: 5px;
+}
+.wrapper .part1 .header .p2 button:nth-child(1) {
+    border-radius: 5px;
+    
+}
 
+.wrapper .part1 .header .p2 button:nth-child(2) i {
+    font-size: 10px;
+}
+.wrapper .part1 .header .p2 button:nth-child(3) {
+    background-color: #238636;
+    border-radius: 5px;
+    
+}
+.wrapper .part1 .header .p2 button:nth-child(3) i {
+    color: #ffffff;
+}
 
+.wrapper .part1 .header .p2 .addres div.notActive  {
+
+    display: none;
+    
+}
+.wrapper .part1 .header .p2 .addres .green {
+    background-color:#238636 ;
+    
+}
+.wrapper .part1 .header .p2 .addres {
+    position:relative;
+    
+}
+
+.wrapper .part1 .header .p2 .addres div.active {
+    
+    display: block;
+    border: 1px solid #30363d;
+    background-color: #161b22;
+    position: absolute;
+    right: 0;
+    width: 350px;
+    border-radius: 20px;
+    
+
+}
+.wrapper .part1 .header .p2 .addres div.active .p-1 {
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper .part1 .header .p2 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-1  .ce1  {
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    padding: 5px;
+}
+
+.wrapper .part1 .header .p2 .addres div.active .p-1  .ce2 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-1  .ce2 {
+    border-left: 1px solid #30363d;
+    border-bottom: 1px solid #30363d;
+    padding: 5px;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-1  .ce2 span {
+    color: #7c838e;
+    
+}
+.wrapper .part1 .header .p2 .addres div.active .p-2 {
+    display: flex;
+    justify-content: space-between;
+    
+
+}
+.wrapper .part1 .header .p2 .addres div.active .p-2 .pp1 {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-2 .pp1 i {
+    border: 1px solid #e6edf3;
+    color: #e6edf3;
+    font-size: 7px;
+    padding: 3px;
+    border-radius: 2px;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-2 .pp1 span {
+    font-size: 13px;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-2 .pp2 {
+    border: 1px solid #707782;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    position: relative;
+}
+
+.wrapper .part1 .header .p2 .addres div.active .p-2 .pp2 span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+
+}
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp1 {
+    display: flex;
+    gap: 10px;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp1 h6{
+    color: #fff;
+    padding: 10px;
+    transition: all 0.5s;
+    border-radius: 10px;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp1 h6:hover {
+    background-color: #393f48;
+    cursor: pointer;
+    
+}
 
 
 

@@ -98,7 +98,7 @@ export default function RepositoryPage() {
                                     <div className="repose">
                                         {repose.map((e , id) => {
                                             if(e.name.includes(searchValue ) || searchValue  == e.name ) {
-                                                let result1 = new Date(e.updated_at).toLocaleDateString('en-GB');
+                                               
                                             
                                                 
                                                 return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {e.updated_at} language = {e.language} type={e.private} name={e.name}/>

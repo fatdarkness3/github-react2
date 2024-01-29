@@ -16,7 +16,7 @@ export default function PinAndEse(props) {
     const [active , setActive] = useState("")
     const [nameOfRepository , setNameOfRepository] = useState([])
     const [create , setcreate] = useState("")
-    // const [branck]
+    
     let username = props.params
 
     useEffect(() => {
@@ -69,7 +69,7 @@ export default function PinAndEse(props) {
                    
                     
                     
-                   return <ShowSomeRepositories name = {e.name} type={e.private} language = {e.language} />
+                   return <ShowSomeRepositories username = {username}  name = {e.name} type={e.private} language = {e.language} />
                     
                 })}
             </div>

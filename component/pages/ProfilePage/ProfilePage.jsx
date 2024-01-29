@@ -12,7 +12,7 @@ export default function Profile() {
     
     const[name,  setName] = useState("")
 
-    let getUserFromParams = param.username
+    let getUserFromParams = param.username;
 
 
     useEffect(() => {

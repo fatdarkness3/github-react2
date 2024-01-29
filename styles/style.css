@@ -1172,6 +1172,9 @@ i.bi-github {
 #iii:focus-visible {
     outline: none;
 }
+.wrapper .container .part1 {
+    margin-bottom: 30px ;
+}
 
 
 

@@ -1,12 +1,14 @@
 import { useEffect, useRef, useState } from "react"
 import {repositories} from "../../../api/RepositoresApi"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import ShowSomeRepositories from "./showSomeRepositories/showSomeRepositories"
 import CalendarHeatmap from 'react-calendar-heatmap';
 import "../../../styles/style2.css"
 import HeatMap from '@uiw/react-heat-map';
 import moment from "moment";
-import { commits } from "../../../api/commits";
+import Moment from "react-moment";
+import { commit } from "../../../api/commit";
+
 
 
 export default function PinAndEse(props) {
@@ -16,25 +18,48 @@ export default function PinAndEse(props) {
     const [active , setActive] = useState("")
     const [nameOfRepository , setNameOfRepository] = useState([])
     const [create , setcreate] = useState("")
+    const [ttrue , setTtrue] = useState(false)
+    const [pp , setPp] = useState([])
     
     let username = props.params
-
+    
     useEffect(() => {
       
+      
+
+
+
+
       repositories(username).then((e) => {
         setSet(e)
         setNameOfRepository(e[2].name)
         // setBranch(e[2].default_branch)
         setcreate(e[2].created_at)
+        setTtrue(true)
         
       })
       
         // commits(username ,nameOfRepository , branch ).then((e) => {
         //   
         // })
+
+        
         
     } , [])
-
+    useEffect(() => {
+        
+        
+        if(ttrue) {
+          commit(username , nameOfRepository ).then ((e) => {
+           
+            setPp(e.length)
+            
+        })
+          
+        }
+      
+  } , [ttrue])
+  console.log(pp)
 
     const value = [
         { date: '2024/01/11', count: 2 },
@@ -61,9 +86,7 @@ export default function PinAndEse(props) {
                 {set.map((e) => {
                   
                   
-                    let a = (moment(e.pushed_at).utc().format('YYYY-MM-DD'));
-                    // let b  = a.replaceAll("-" , "")
-                    let c = parseInt(a)
+                    
                     
                     
                    
@@ -137,20 +160,22 @@ export default function PinAndEse(props) {
               </div>
               <div className="all">
               <div className="Contribution">
-                  <p className="ab">{(moment(create).utc().format('YYYY-MM-DD'))}</p>
+                  <p className="ab"><Moment fromNow>{create}</Moment></p>
                   <div className="ab2">
                   <i class="fa-solid fa-file-arrow-up"></i>
                   </div>
                   
                   
+                  <Link to={`/${username}/${nameOfRepository}`}>
                 <div className="name1">
-                  <h6>Created 4 commits in 1 repository</h6>
+                  <h6>Created {pp} commits in 1 repository</h6>
                   <div className="ttt">
                     <a>{username}/{nameOfRepository}</a>
-                    <p>4commits</p>
+                    <p> {pp} commits</p>
                   </div>
                   
                 </div>
+                </Link>
                 <div className="name2">
                 <i class="fa-solid fa-angles-up"></i>
                   <div></div>

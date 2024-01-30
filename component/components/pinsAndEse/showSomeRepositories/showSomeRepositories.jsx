@@ -7,7 +7,7 @@ export default function ShowSomeRepositories(props) {
         <div className="headerForBorder">
             <Link to={`/${props.username}/${props.name}`}>
                 <div className="part1-1">
-                    <a href="#" >
+                    <a  href="#" >
 
                         {props.name}
                                 
@@ -16,7 +16,7 @@ export default function ShowSomeRepositories(props) {
                 </div>
             </Link>
         <div className="type">
-                <div className="part1-11">
+                <div className="part1-11 margin">
                     <div></div>
                     <p>{props.language}</p>
                 </div>

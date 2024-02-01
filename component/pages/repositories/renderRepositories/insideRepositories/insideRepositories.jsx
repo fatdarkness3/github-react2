@@ -12,6 +12,8 @@ import { commits } from "../../../../../api/commits"
 import { commit } from "../../../../../api/commit"
 import Moment from "react-moment"
 import { languages } from "../../../../../api/languege"
+import { getReadME } from "../../../../../api/readMe"
+
 
 
 
@@ -36,8 +38,8 @@ const [active , setActive] = useState("")
 const [commitmessage , setMessageCommit] = useState([])
 const [time , setTime] = useState([])
 const [commitsLenghts , setCommitsLenghts] = useState([])
-// const [obj1 , setobj] = useState({})
-const [readMe1 , setReadMe] = useState([])
+
+const [readMe1 , setReadMe] = useState("")
 
 
 
@@ -104,14 +106,19 @@ let nameOfRepository = param.nameOfRepository
         })
 
         
-       languages(username , nameOfRepository).then((e) => {
-        console.log(e)
-       })
+       
 
         
+       getReadME(username , nameOfRepository).then((e) => {
+           setReadMe(e)
+           
+
+       })
+
+
     } , [])
     
-            
+       
         
     
     useEffect(() => {
@@ -341,7 +348,10 @@ let nameOfRepository = param.nameOfRepository
                         
                 </div>
                 <div className="readMe">
-
+                    <h5>
+                        {readMe1}
+                    </h5>
+                            
                 </div>
             </div>
 

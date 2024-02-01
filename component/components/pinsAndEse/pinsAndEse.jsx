@@ -59,7 +59,7 @@ export default function PinAndEse(props) {
         }
       
   } , [ttrue])
-  console.log(pp)
+ 
 
     const value = [
         { date: '2024/01/11', count: 2 },

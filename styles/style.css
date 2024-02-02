@@ -312,6 +312,10 @@ i.bi-github {
     gap: 18px;
     display: flex;
     margin-top: 40px;
+    margin-bottom: 30px;
+}
+.flex-button h4 {
+    margin-bottom: 5px;
 }
 .p2 .searchBtn button {
     background: transparent;
@@ -514,7 +518,7 @@ i.bi-github {
     justify-content: space-between;
     gap: 25px;
     margin-top: 10px;
-    height: 330px;
+    height: 340px;
     overflow: hidden;
 }
 .headerForBorder {

@@ -32,6 +32,7 @@ export default function PinAndEse(props) {
 
       repositories(username).then((e) => {
         setSet(e)
+        
         setNameOfRepository(e[2].name)
         // setBranch(e[2].default_branch)
         setcreate(e[2].created_at)

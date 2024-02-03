@@ -1,9 +1,10 @@
+import { tokenTest } from "../src/token"
 import { token } from "./userInfo"
 import { Octokit } from "octokit"
 
 async function commits(a ,name ,  branch) {
     const octokit = new Octokit({
-        auth: token
+        auth: tokenTest()
       })
       
      let salam =  await octokit.request('GET /repos/{owner}/{repo}/commits/{ref}', {

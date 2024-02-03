@@ -1,9 +1,10 @@
 import { Octokit } from "octokit"
 import { token } from "./userInfo"
+import { tokenTest } from "../src/token";
 
 async function branch(username , nameOfRepository) {
     const octokit = new Octokit({
-        auth: token
+        auth: tokenTest()
       })
       
      let a =  await octokit.request('GET /repos/{owner}/{repo}/branches', {

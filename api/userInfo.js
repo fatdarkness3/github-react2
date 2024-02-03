@@ -1,4 +1,5 @@
  import { Octokit } from "octokit";
+import { tokenTest } from "../src/token";
 
 
 
@@ -12,7 +13,7 @@
 
 
 
- export let token = "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"
+ export let token = "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"
 
 
 
@@ -23,7 +24,7 @@
  async function api(username) {
     
     const octokit = new Octokit({
-        auth: token
+        auth: tokenTest()
       })
       
      let response =  await octokit.request('GET /users/{username}', {

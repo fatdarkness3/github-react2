@@ -1,3 +1,4 @@
+import { tokenTest } from "../src/token";
 import { token } from "./userInfo";
 import { Octokit } from "octokit";
 
@@ -5,7 +6,7 @@ async function pushFilesJs(username , nameOfRepository , default_branch) {
 
 
   const octokit = new Octokit({
-    auth: token
+    auth: tokenTest()
   })
   
  let ret =  await octokit.request('GET /repos/{owner}/{repo}/git/trees/{tree_sha}', {

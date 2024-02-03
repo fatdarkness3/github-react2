@@ -58,7 +58,9 @@ export default function SearchBtn(props) {
                                     <div className={active ? "openSomeThing" : "none"}>
                                             <div className="p-1">
                                                 <span>Select type</span>
-                                                <i class="fa-solid fa-xmark"></i>
+                                                <i class="fa-solid fa-xmark" onClick={() => {
+                                                    setActive(!active)
+                                                }}></i>
                                             </div>
                                             <div className="p-2">
                                                 <p>All</p>

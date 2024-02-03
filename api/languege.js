@@ -1,9 +1,10 @@
+import { tokenTest } from "../src/token";
 import { token } from "./userInfo";
 import { Octokit } from "octokit";
 
 async function languages(username , nameOfRepository) {
   const octokit = new Octokit({
-    auth: token
+    auth: tokenTest
   })
   
  let a =  await octokit.request('GET /repos/{owner}/languages', {

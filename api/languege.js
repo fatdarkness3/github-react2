@@ -6,9 +6,9 @@ async function languages(username , nameOfRepository) {
     auth: token
   })
   
- let a =  await octokit.request('GET /repos/{owner}/{repo}/languages', {
+ let a =  await octokit.request('GET /repos/{owner}/languages', {
     owner: username,
-    repo: nameOfRepository,
+    
     headers: {
       'X-GitHub-Api-Version': '2022-11-28'
     }

@@ -38,8 +38,8 @@ const [active , setActive] = useState("")
 const [commitmessage , setMessageCommit] = useState([])
 const [time , setTime] = useState([])
 const [commitsLenghts , setCommitsLenghts] = useState([])
-
 const [readMe1 , setReadMe] = useState("")
+const [lang , setLang] = useState({})
 
 
 
@@ -61,7 +61,9 @@ let nameOfRepository = param.nameOfRepository
     
     useEffect(() => {
 
-       
+        languages(username , nameOfRepository).then((e) => {
+            setLang(e)
+        })
 
         tags(username , nameOfRepository ).then((e) =>{
             setTest(e.length)
@@ -77,7 +79,10 @@ let nameOfRepository = param.nameOfRepository
         })
 
 
-        
+
+
+
+       
 
         
         
@@ -415,10 +420,12 @@ let nameOfRepository = param.nameOfRepository
                     </a>
                     <span>No packages published</span>
                 </div>
-                {/* <div className="pr4">
+                <div className="pr4">
                     <h6>Languages</h6>
-
-                </div> */}
+                    <div className="pop1">
+                        {}
+                    </div>    
+                </div>
             </div>
             </div>
        

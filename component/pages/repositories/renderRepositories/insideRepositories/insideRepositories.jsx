@@ -38,8 +38,8 @@ const [active , setActive] = useState("")
 const [commitmessage , setMessageCommit] = useState([])
 const [time , setTime] = useState([])
 const [commitsLenghts , setCommitsLenghts] = useState([])
-
 const [readMe1 , setReadMe] = useState("")
+const [popopo , setPopopo] = useState([])
 
 
 
@@ -53,8 +53,8 @@ let nameOfRepository = param.nameOfRepository
     let url =  window.location.href
     
     let rep = url.replace(`localhost:1234` , "github.com")
-    
-    
+
+     ;
     
 
     
@@ -116,9 +116,18 @@ let nameOfRepository = param.nameOfRepository
        })
 
 
+
+       languages(username , nameOfRepository).then((e) => {
+
+            setPopopo(e)
+
+       })
+
+       
+
     } , [])
     
-       
+    
         
     
     useEffect(() => {
@@ -415,10 +424,9 @@ let nameOfRepository = param.nameOfRepository
                     </a>
                     <span>No packages published</span>
                 </div>
-                {/* <div className="pr4">
-                    <h6>Languages</h6>
-
-                </div> */}
+                {Object.keys(popopo).map((e) => {
+                    return <p>{e}</p>
+                }) }
             </div>
             </div>
        

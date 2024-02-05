@@ -145,6 +145,7 @@ i.bi-github {
   } */
 .part2 {
     margin-top: 15px;
+    max-width: 25%;
 }
 .part2 ul  {
     flex-direction: row;
@@ -1260,8 +1261,45 @@ i.bi-github {
     font-weight: 100;
     line-height: 45px;
 }
+.container .part2 .pr4 .pop1 .kaftar2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.container .part2 .pr4 .pop1 .op {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+    width: 50%;
+}
+.container .part2 .pr4 .pop1 .op h6 {
+    margin: 0;
+}
 
-
+.container .part2 .pr4 .pop1 .op h6 span:nth-child(1) {
+    padding-right: 10px;
+    font-size: 13px;
+}
+.container .part2 .pr4 .pop1 .op h6 span:nth-child(2) {
+    font-size: 13px;
+    color: #848d97;
+}
+.container .part2 .pr4 .pop1 .op div {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+.container .part2 .pr4 .pop1 .op div.yellow {
+    background-color: yellow;
+}
+.container .part2 .pr4 .pop1 .op div.red {
+    background-color: red;
+}
+.container .part2 .pr4 .pop1 .op div.purple {
+    background-color: purple;
+}
 
 
 

@@ -19,13 +19,7 @@ import { getReadME } from "../../../../../api/readMe"
 
 export default function InsideRepositories(props) {
 
-// let obj = {
-//     name1: "pedaret1" , 
-//     name2: "pedaret2" , 
-//     name3: "pedaret3" , 
-//     name4: "pedaret4" , 
-//     name5: "pedaret5" , 
-// }
+
 
 
 const [res , setRes] = useState({})
@@ -39,7 +33,11 @@ const [commitmessage , setMessageCommit] = useState([])
 const [time , setTime] = useState([])
 const [commitsLenghts , setCommitsLenghts] = useState([])
 const [readMe1 , setReadMe] = useState("")
-const [lang , setLang] = useState({})
+
+
+const [popopo , setPopopo] = useState([])
+const [cccca , setcccca] = useState("")
+
 
 
 
@@ -53,17 +51,15 @@ let nameOfRepository = param.nameOfRepository
     let url =  window.location.href
     
     let rep = url.replace(`localhost:1234` , "github.com")
-    
-    
+
+     ;
     
 
     
     
     useEffect(() => {
 
-        languages(username , nameOfRepository).then((e) => {
-            setLang(e)
-        })
+        
 
         tags(username , nameOfRepository ).then((e) =>{
             setTest(e.length)
@@ -121,9 +117,18 @@ let nameOfRepository = param.nameOfRepository
        })
 
 
+
+       languages(username , nameOfRepository).then((e) => {
+
+            setPopopo(e)
+
+       })
+
+       
+
     } , [])
     
-       
+    
         
     
     useEffect(() => {
@@ -164,6 +169,35 @@ let nameOfRepository = param.nameOfRepository
 
     
         
+    function cal(e) {
+        let cc =  Object.values(popopo)
+        let cc2 = Object.keys(popopo)
+
+       let sum = 0 
+       for( let i = 0; i<cc.length; i++) {
+
+        sum+= cc[i]
+
+       }
+       
+       return  cc2.map((key) => {
+            let a = [key , popopo[key]]
+            
+            let cfg = ((a[1]*100)/sum)
+            
+            return(  
+                <div className="op">
+                    
+                        <div className={a[0] == "JavaScript" ? "yellow" : null || a[0] == "CSS" ? "purple" : null || a[0] == "HTML" ? "red" : null}></div>
+                        <h6><span>{a[0]}</span><span>{cfg.toFixed(1)}%</span></h6>
+                    
+                       
+                </div>
+            )
+
+       })
+       
+    }
     
    
 
@@ -423,9 +457,11 @@ let nameOfRepository = param.nameOfRepository
                 <div className="pr4">
                     <h6>Languages</h6>
                     <div className="pop1">
-                        {}
+                        <div className="kaftar1"></div>
+                        <div className="kaftar2">{cal()}</div>
                     </div>    
                 </div>
+                
             </div>
             </div>
        

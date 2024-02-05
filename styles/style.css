@@ -1302,6 +1302,24 @@ i.bi-github {
 }
 
 
+.container .part2 .pr4 .pop1 .kaftar1 div.yellow {
+    background-color: yellow;
+}
+.container .part2 .pr4 .pop1 .kaftar1 div.red {
+    background-color: red;
+}
+.container .part2 .pr4 .pop1 .kaftar1 div.purple {
+    background-color: purple;
+}
+.container .part2 .pr4 .pop1 .kaftar1 {
+    width: 300px;
+    height: 8px;
+    display: flex;
+    overflow: hidden;
+    border-radius: 5px;
+    gap: 2px;
+}
+
 
 
 

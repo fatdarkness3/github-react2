@@ -190,7 +190,7 @@ let nameOfRepository = param.nameOfRepository
                     
                         <div className={a[0] == "JavaScript" ? "yellow" : null || a[0] == "CSS" ? "purple" : null || a[0] == "HTML" ? "red" : null}></div>
                         <h6><span>{a[0]}</span><span>{cfg.toFixed(1)}%</span></h6>
-                    
+
                        
                 </div>
             )
@@ -198,7 +198,51 @@ let nameOfRepository = param.nameOfRepository
        })
        
     }
-    
+    function cal2() {
+
+        let arry = []
+        
+        let cc =  Object.values(popopo)
+        let cc2 = Object.keys(popopo)
+
+
+
+        let sum = 0 
+        for( let i = 0; i<cc.length; i++) {
+ 
+         sum+= cc[i]
+ 
+        }
+
+        cc2.map((key) => {
+            let a = [key , popopo[key]]
+            
+            let cfg = ((a[1]*100)/sum)
+            let vbn = cfg.toFixed(1)
+            let b = [key , ((popopo[key] *100)/sum).toFixed(1)]
+
+
+
+          
+            arry.push(b)
+            
+
+
+       })
+     return   arry.map((e) => {
+         let cxz = ((e[1]/100)*300)
+         let qqq = cxz.toFixed(1)
+         
+         
+        return (
+            <>
+            
+                <div className={e[0] == "JavaScript" ? "yellow" : null || e[0] == "CSS" ? "purple" : null || e[0] == "HTML" ? "red" : null} style={{width: `${qqq}px` , height:"10px"  }}></div>
+            </>
+        )
+       })
+    }
+    cal2()
    
 
 
@@ -457,7 +501,7 @@ let nameOfRepository = param.nameOfRepository
                 <div className="pr4">
                     <h6>Languages</h6>
                     <div className="pop1">
-                        <div className="kaftar1"></div>
+                        <div className="kaftar1">{cal2()}</div>
                         <div className="kaftar2">{cal()}</div>
                     </div>    
                 </div>

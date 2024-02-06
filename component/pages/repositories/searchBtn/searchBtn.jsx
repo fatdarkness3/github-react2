@@ -59,6 +59,7 @@ export default function SearchBtn(props) {
                                         setActive(!active)
                                         setActive2(false)
                                         setActive3(false)
+                                        
                                     }}>
                                         <div className="givFlex">
                                             <p>Type </p>

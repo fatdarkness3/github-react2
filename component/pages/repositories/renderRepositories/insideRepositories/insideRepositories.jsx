@@ -217,8 +217,8 @@ let nameOfRepository = param.nameOfRepository
         cc2.map((key) => {
             let a = [key , popopo[key]]
             
-            let cfg = ((a[1]*100)/sum)
-            let vbn = cfg.toFixed(1)
+            // let cfg = ((a[1]*100)/sum)
+            // let vbn = cfg.toFixed(1)
             let b = [key , ((popopo[key] *100)/sum).toFixed(1)]
 
 

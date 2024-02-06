@@ -8,8 +8,8 @@ export default function SearchBtn(props) {
 
     const [active , setActive] = useState("")
     const [mm , setMm] = useState([])
-    const [newState , setNewState] = useState("")
-    
+    const [active2 , setActive2] = useState("")
+    const [active3 , setActive3] = useState("")
 
     let par = useParams()
     let username = par.username
@@ -22,19 +22,29 @@ export default function SearchBtn(props) {
        
     } , [])
     
-    
-    const letters = new Set();
-    let obj = []
-    let obj2 = []
-    function aybaba() {
+
+    function show () {
+
+        let arry = []
+        mm.map((e) => {
+            let a = e.language
+           arry.push(a)
+           
+        })
         
-       
-         let c = new Set(obj)
+      
+        let a = [...new Set(arry)]
+
+         let mmm = a.filter((e) =>{
+            return e !== null
+         })
          
+       return  mmm.sort().reverse().map((e) => {
+                return <p> {e}</p>
+         })
         
-         return c
     }
-    
+
     return (
         <>
             <div className="searchBtn">
@@ -47,6 +57,8 @@ export default function SearchBtn(props) {
                                 <div className="hame">
                                     <button type="button" class="btn btn-secondary btn-sm" onClick={() => {
                                         setActive(!active)
+                                        setActive2(false)
+                                        setActive3(false)
                                     }}>
                                         <div className="givFlex">
                                             <p>Type </p>
@@ -76,7 +88,11 @@ export default function SearchBtn(props) {
                                         </div>
                                 </div>
                                 <div className="hame2">
-                                    <button type="button" class="btn btn-secondary btn-sm">
+                                    <button type="button" class="btn btn-secondary btn-sm" onClick={() => {
+                                        setActive2(!active2)
+                                        setActive(false)
+                                        setActive3(false)
+                                    }}>
                                         <div className="givFlex">
                                             <p>Language </p>
                                             
@@ -84,36 +100,57 @@ export default function SearchBtn(props) {
                                         </div>
                                     
                                     </button>
-                                    <div className="openSomeThing2">
+                                    <div className={active2 ? "openSomeThing2" : "none"}>
                                         <div className="p-1">
-
+                                            <span>Select type</span>
+                                            <i class="fa-solid fa-xmark" onClick={() => {
+                                                    setActive2(!active2)
+                                                }}></i>
                                         </div>
                                         <div className="p-2">
-                                            { mm.filter((e) => {
-                                                
-                                                    let a = e.language
-                                                    
-                                                   let b =  obj.push(a)
-                                                    
-                                                   
+                                            
+                                            <p>All</p>
+                                            {show()}
 
-
-                                                })}
-                                                
-                                            <h6>{aybaba()}</h6>
                                         </div>
                                     </div>
                                 </div>
                                 
 
-                                <button type="button" class="btn btn-secondary btn-sm">
-                                    <div className="givFlex">
-                                        <p>Sort</p>
-                                        
-                                        <i class="fa fa-sort-down"></i>
-                                    </div>
+                                <div className="hame3">
+                                    <button type="button" class="btn btn-secondary btn-sm" onClick={() => {
+                                        setActive3(!active3)
+                                        setActive(false)
+                                        setActive2(false)
+                                    }}>
+                                        <div className="givFlex">
+                                            <p>Language </p>
+                                            
+                                            <i class="fa fa-sort-down"></i> 
+                                        </div>
                                     
-                                </button>
+                                    </button>
+                                    <div className={active3 ? "openSomeThing3" : "none"}>
+                                        <div className="p-1">
+                                            <span>Select order</span>
+                                            <i class="fa-solid fa-xmark" onClick={() => {
+                                                    setActive3(!active3)
+                                                    setActive(false)
+                                                    setActive2(false)
+
+                                                }}></i>
+                                        </div>
+                                        <div className="p-2">
+                                            
+                                            <p>All</p>
+                                            <p>Last updated</p>
+                                            <p>Name</p>
+                                            <p>Stars</p>
+                                            
+
+                                        </div>
+                                    </div>
+                                </div>
                                 
                             </div>
         

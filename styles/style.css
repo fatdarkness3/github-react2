@@ -1301,16 +1301,61 @@ i.bi-github {
     background-color: purple;
 }
 
+.container .part2 .pr4 .pop1 .op div.blue {
+    background-color: #3178c6;
+}
+.container .part2 .pr4 .pop1 .op div.midblue {
+    background-color: #6866fb;
+}
+.container .part2 .pr4 .pop1 .op div.orange {
+    background-color: #b07219;
+}
+.container .part2 .pr4 .pop1 .op div.someBlues {
+    background-color: #5686a5;
+}
+.container .part2 .pr4 .pop1 .op div.sorkh {
+    background-color: #f34b7d;
+}
+.container .part2 .pr4 .pop1 .op div.gray {
+    background-color: #555555;
+}
+.container .part2 .pr4 .pop1 .op div.darkRed {
+    background-color: #701516;
+}
+
 
 .container .part2 .pr4 .pop1 .kaftar1 div.yellow {
     background-color: yellow;
 }
+.container .part2 .pr4 .pop1 .kaftar1 div.someBlues {
+    background-color: #5686a5;
+}
+.container .part2 .pr4 .pop1 .kaftar1 div.sorkh {
+    background-color: #f34b7d;
+}
 .container .part2 .pr4 .pop1 .kaftar1 div.red {
     background-color: red;
+}
+.container .part2 .pr4 .pop1 .kaftar1 div.darkRed {
+    background-color: #701516;
 }
 .container .part2 .pr4 .pop1 .kaftar1 div.purple {
     background-color: purple;
 }
+.container .part2 .pr4 .pop1 .kaftar1 div.blue {
+    background-color: #3178c6;
+}
+.container .part2 .pr4 .pop1 .kaftar1 div.midblue {
+    background-color: #6866fb;
+}
+.container .part2 .pr4 .pop1 .kaftar1 div.orange {
+    background-color: #b07219;
+}
+.container .part2 .pr4 .pop1 .kaftar1 div.gray {
+    background-color: #555555;
+}
+
+
 .container .part2 .pr4 .pop1 .kaftar1 {
     width: 300px;
     height: 8px;

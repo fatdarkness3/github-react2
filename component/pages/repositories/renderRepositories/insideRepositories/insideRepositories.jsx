@@ -188,7 +188,7 @@ let nameOfRepository = param.nameOfRepository
             return(  
                 <div className="op">
                     
-                        <div className={a[0] == "JavaScript" ? "yellow" : null || a[0] == "CSS" ? "purple" : null || a[0] == "HTML" ? "red" : null}></div>
+                        <div className={a[0] == "JavaScript" ? "yellow" : null || a[0] == "CSS" ? "purple" : null || a[0] == "HTML" ? "red" : null ||a[0] == "TypeScript" ? "blue" : null || a[0] == "Objective-C" ? "blue" : null || a[0] == "Objective-C++" ? "midblue" : null || a[0] == "Java" ? "orange" : null || a[0] == "GLSL" ? "someBlues" : null || a[0] == "C++" ? "sorkh" : null || a[0] == "C" ? "gray" : null || a[0] == "Python" ? "blue" : null || a[0] == "Ruby" ? "darkRed" : null}></div>
                         <h6><span>{a[0]}</span><span>{cfg.toFixed(1)}%</span></h6>
 
                        
@@ -237,7 +237,7 @@ let nameOfRepository = param.nameOfRepository
         return (
             <>
             
-                <div className={e[0] == "JavaScript" ? "yellow" : null || e[0] == "CSS" ? "purple" : null || e[0] == "HTML" ? "red" : null} style={{width: `${qqq}px` , height:"10px"  }}></div>
+                <div className={e[0] == "JavaScript" ? "yellow" : null || e[0] == "CSS" ? "purple" : null || e[0] == "HTML" ? "red" : null || e[0] == "TypeScript" ? "blue" : null || e[0] == "Objective-C" ? "blue" : null || e[0] == "Objective-C++" ? "midblue" : null || e[0] == "Java" ? "orange" : null || e[0] == "GLSL" ? "someBlues" : null || e[0] == "C++" ? "sorkh" : null || e[0] == "C" ? "gray" : null || e[0] == "Python" ? "blue" : null || e[0] == "Ruby" ? "darkRed" : null} style={{width: `${qqq}px` , height:"10px"  }}></div>
             </>
         )
        })

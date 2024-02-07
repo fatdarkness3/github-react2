@@ -153,7 +153,7 @@ i.bi-github {
     gap: 15px;
     margin: 0;
     display: flex;
-    align-items: center;
+    
 }
 .part2 .notCenter {
     align-items: baseline;
@@ -210,9 +210,48 @@ i.bi-github {
     background: transparent;
     border: 0;
 }
-.part2 ul li button:focus .backgroundBlack::after {
-    border: 1px solid #f78166 ;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.part2 ul li button.focus {
+    border-bottom: 2px solid #f78166 ;
+    
+    padding-bottom: 15px;
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* .part2 ul li  .backgroundBlack {
     border: 1px solid orange;
 } */
@@ -966,7 +1005,7 @@ i.bi-github {
 }
 
 .wrapper .part1 .header .p2 .addres div {
-    transition: all 1s;
+    transition: all 0.3s;
 }
 .wrapper .part1 .header .p2 .addres div.notActive  {
     overflow: hidden;
@@ -1091,7 +1130,7 @@ i.bi-github {
 .wrapper .part1 .header .p2 .addres div.active .p-3 .pp1 div.underline {
     border-bottom: 2px solid orangered;
     animation-name: ani;
-    animation-duration: 2s;
+    animation-duration: 0.3s;
 }
 
 .wrapper .part1 .header .p2 .addres div.active .p-3 .pp1 h6:hover {
@@ -1175,6 +1214,7 @@ i.bi-github {
 }
 .container .part1 .main .p-11 .p-e span:nth-child(3) {
     color: #848d97;
+    font-size: 13px;
 }
 .container .part1 .main .p-11 .p-e img {
     width: 20px;
@@ -1207,6 +1247,7 @@ i.bi-github {
 }
 .container .part1 .main .p-22 .fff .cce span {
     color: #848d97;
+    font-size: 13px;
 }
 .container .part1 .main .p-22 .fff {
     display: flex;

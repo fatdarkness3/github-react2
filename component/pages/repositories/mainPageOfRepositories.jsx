@@ -74,21 +74,20 @@ export default function RepositoryPage() {
         } , [])
         
         document.title = `${getUserFromParams} (${test}) /Repository`
-        if(firstLoading == true) {
-            return <div className="loading"><MoonLoader color="#36d7b7" /></div> 
-        } else {
+        
             
             return(
                 <>
                     
                     <Header1 params = {getUserFromParams} numberOfRepositories = {repose.length}/>
+                    {firstLoading ? <div className="loading"><MoonLoader color="#36d7b7" /></div>  : 
                     <div className="main">
                         <div className="wrapper">
                             <div className="flexing">
 
         
                                 
-
+                            
                             {error ? <h1 color="#fff">error</h1>  : <UserProfile params = {getUserFromParams} />}
                             
 
@@ -121,10 +120,11 @@ export default function RepositoryPage() {
                         </div>
                         
                     </div>
+        }
                 </>
                 
             )
         
         
-           }    
+              
 }

@@ -7,7 +7,13 @@ import { createPortal } from "react-dom";
 
 export default function Header1(props) {
 
-const [set , setSet] = useState("")
+const [ac , setAc] = useState(true)
+const [ac2 , setAc2] = useState(false)
+const [ac3 , setAc3] = useState(false)
+const [ac4 , setAc4] = useState(false)
+const [ac5 , setAc5] = useState(false)
+const [ac6 , setAc6] = useState(false)
+
 const [open , setOpen] = useState(false)
     
     let params = useParams()
@@ -147,20 +153,35 @@ const [open , setOpen] = useState(false)
                                     <ul>
                                         <li>
                                             <Link to={`/${props.params}`}>
-                                            <button className="focus">
+
+                                            <button className={ac ? "focus" : "noneBorder"} onClick={() => {
+                                            setAc(true)
+                                            setAc2(false)
+                                            setAc3(false)
+                                            setAc4(false)
+                                            setAc5(false)
+                                        }}>
                                                 <div className="give-position">
                                                     <i class="fa fa-book"></i>
                                                     <h6>Overview</h6>
                                                 </div>
-                                                <div className="backgroundBlack"></div>
+                                                
                                             </button>
                                             </Link>
                                             
                                             
                                         </li>
-                                        <li>
+                                        <li >
                                         <Link to ={`/${props.params}/repository`}>
-                                            <button className="focus">
+                                            <button className={ac2 ? "focus" : "noneBorder" } onClick={() => {
+                                                
+                                                setAc2(true)
+                                                setAc(false)
+                                                setAc3(false)
+                                                setAc4(false)
+                                                setAc5(false)
+                                                
+                                            }}>
                                             <div className="give-position">
                                                     <i class="fa fa-save"></i>
                                                     
@@ -169,7 +190,7 @@ const [open , setOpen] = useState(false)
                                                         {!props.numberOfRepositories ? <div className="none"><div className="absolute">{props.numberOfRepositories}</div></div>: <div className="first"><div className="absolute">{props.numberOfRepositories}</div></div>}
                                                     
                                                 </div>
-                                                <div className="backgroundBlack"></div>
+                                                
                                             </button>
                                             </Link>
                                             
@@ -177,7 +198,13 @@ const [open , setOpen] = useState(false)
                                                 
                                         </li>
                                         <li>
-                                            <button className="focus">
+                                            <button className={ac3 ?"focus" : "noneBorder"} onClick={() => {
+                                                setAc2(false)
+                                                setAc(false)
+                                                setAc3(true)
+                                                setAc4(false)
+                                                setAc5(false)
+                                            }}>
                                             <div className="give-position">
                                                     <i class="fa fa-columns"></i>
                                                     <h6>Project</h6>
@@ -188,7 +215,13 @@ const [open , setOpen] = useState(false)
 
                                         </li>
                                         <li>
-                                            <button className="focus">
+                                            <button className={ac4 ? "focus" : "noneBorder"} onClick={() => {
+                                                setAc2(false)
+                                                setAc(false)
+                                                setAc3(false)
+                                                setAc4(true)
+                                                setAc5(false)
+                                            }}>
                                                 <div className="give-position">
                                                     <i class="fa fa-dropbox"></i>
                                                     <h6>package</h6>
@@ -200,7 +233,14 @@ const [open , setOpen] = useState(false)
                                                 
                                         </li>
                                         <li>
-                                            <button className="focus">
+                                            <button className={ac5 ? "focus" : "noneBorder"} onClick={() => {
+                                                setAc2(false)
+                                                setAc(false)
+                                                setAc3(false)
+                                                setAc4(false)
+                                                setAc5(true)
+                                            }}>
+
                                             <div className="give-position">
                                                     <i class="fa fa-star-o"></i>
                                                     <h6>Star</h6>

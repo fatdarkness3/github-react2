@@ -965,10 +965,17 @@ i.bi-github {
     color: #ffffff;
 }
 
+.wrapper .part1 .header .p2 .addres div {
+    transition: all 1s;
+}
 .wrapper .part1 .header .p2 .addres div.notActive  {
-
-    display: none;
+    overflow: hidden;
+    height: 0;
+    visibility: hidden;
     
+}
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp2 , .wrapper .part1 .header .p2 .addres div.active .p-3 .pp2-2 , .wrapper .part1 .header .p2 .addres div.active .p-3 .pp2-3 {
+    margin-top: 15px;
 }
 .wrapper .part1 .header .p2 .addres .green {
     background-color:#238636 ;
@@ -976,18 +983,20 @@ i.bi-github {
 }
 .wrapper .part1 .header .p2 .addres {
     position:relative;
-    
+    max-width: 100px;
 }
 
 .wrapper .part1 .header .p2 .addres div.active {
     
-    display: block;
+    visibility: visible;
     border: 1px solid #30363d;
     background-color: #161b22;
     position: absolute;
     right: 0;
+    top: 35px;
     width: 350px;
     border-radius: 20px;
+    visibility: visible;
     
 
 }
@@ -1070,27 +1079,44 @@ i.bi-github {
 .wrapper .part1 .header .p2 .addres div.active .p-3 .pp1 h6{
     color: #fff;
     padding: 10px;
-    transition: all 0.5s;
-    border-radius: 10px;
+    transition: all 0.3s;
+    margin-bottom: 3px;
+    font-size: 14px;
+    
 }
+@keyframes ani {
+    from {border-radius: 10px;}
+    to {border-radius: 0px;}
+}
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp1 div.underline {
+    border-bottom: 2px solid orangered;
+    animation-name: ani;
+    animation-duration: 2s;
+}
+
 .wrapper .part1 .header .p2 .addres div.active .p-3 .pp1 h6:hover {
+    border-radius: 10px;
     background-color: #393f48;
     cursor: pointer;
     
 }
 
-.wrapper .part1 .header .p2 .addres div.active .p-3 .pp2 input {
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp2 input , .wrapper .part1 .header .p2 .addres div.active .p-3 .pp2-2 input , .wrapper .part1 .header .p2 .addres div.active .p-3 .pp2-3 input {
     border: 1px solid #30363d;
     border-radius: 5px;
     font-size: 14px;
     padding-right: 15px;
     color: #fff;
+    padding: 5px;
 }
-.wrapper .part1 .header .p2 .addres div.active .p-3 .pp2 p {
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp2 p , .wrapper .part1 .header .p2 .addres div.active .p-3 .pp2-2 p  , .wrapper .part1 .header .p2 .addres div.active .p-3 .pp2-3 p{
     color: #7d8590;
     margin-top: 10px;
     font-size: 14px;
     margin-bottom: 0;
+}
+.wrapper .part1 .header .p2 .addres div.active .p-3 .pp2 i {
+    cursor: pointer;
 }
 .wrapper .part1 .header .p2 .addres div.active .p-44 {
     border-top: 1px solid ;

@@ -17,7 +17,7 @@ import { getReadME } from "../../../../../api/readMe"
 
 
 
-export default function InsideRepositories(props) {
+export default function InsideRepositories() {
 
 
 
@@ -36,8 +36,12 @@ const [readMe1 , setReadMe] = useState("")
 
 
 const [popopo , setPopopo] = useState([])
-const [cccca , setcccca] = useState("")
-
+const [ac , setAc] = useState(true)
+const [ac2 , setAc2] = useState(false)
+const [ac3 , setAc3] = useState(false)
+const [tik , setTik] = useState(false)
+const [tik2 , setTik2] = useState(false)
+const [tik3 , setTik3] = useState(false)
 
 
 
@@ -48,9 +52,7 @@ let nameOfRepository = param.nameOfRepository
     let default_branch = res.default_branch
 
 
-    let url =  window.location.href
     
-    let rep = url.replace(`localhost:1234` , "github.com")
 
      ;
     
@@ -132,6 +134,7 @@ let nameOfRepository = param.nameOfRepository
         
     
     useEffect(() => {
+
         if(isRepositoryLoaded) {
             pushFilesJs( username , nameOfRepository , default_branch ).then((e) => {
             
@@ -181,6 +184,7 @@ let nameOfRepository = param.nameOfRepository
        }
        
        return  cc2.map((key) => {
+
             let a = [key , popopo[key]]
             
             let cfg = ((a[1]*100)/sum)
@@ -333,6 +337,7 @@ let nameOfRepository = param.nameOfRepository
                             <i class="fa-solid fa-sort-down"></i>
 
                         </button>
+                        
                         <div className= {active ? "active" : "notActive"}>
                             
                             <div className="p-1">
@@ -356,15 +361,112 @@ let nameOfRepository = param.nameOfRepository
                             </div>
                             <div className="p-3">
                                 <div className="pp1">
-                                    <h6>HTTPS</h6>
-                                    <h6>SSH</h6>
-                                    <h6>GitHub CLI</h6>
+                                    <div className={ac ? "underline" : null}>
+                                        <h6  onClick={() => {
+                                            setAc(true)
+                                            setAc2(false)
+                                            setAc3(false)
+                                        }}>HTTPS</h6>
+                                    </div>
+                                    <div className={ac2 ? "underline" : null}>
+                                        <h6  onClick={() => {
+                                            setAc2(true)
+                                            setAc3(false)
+                                            setAc(false)
+                                        }}>SSH</h6>
+                                    </div>
+                                    <div className={ac3 ? "underline" : null}>
+                                        <h6  onClick={() => {
+                                            setAc3(true)
+                                            setAc2(false)
+                                            setAc(false)
+                                        }}>GitHub CLI</h6>
+                                    </div>
+                                    
                                 </div>
-                                <div className="pp2">
-                                    <input value={`${rep}.git`} className="input"/>
+
+
+
+
+
+
+
+
+
+
+
+                                <div className={ac2 || ac3 ? "none" : "pp2"}>
+                                    <div className="flex">
+                                        <input id="myInput" value={ `https://github.com/${username}/${nameOfRepository}.git`} className="input"/>
+                                        <i className={tik ? "fa-solid fa-check" :"fa-solid fa-copy"} onClick={() => {
+                                            // Get the text field
+                                            var copyText = document.getElementById("myInput");
+
+                                            // Select the text field
+                                            copyText.select();
+                                            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+                                            // Copy the text inside the text field
+                                            navigator.clipboard.writeText(copyText.value);
+                                            setTik(true)
+                                            
+                                        }}/>
+                                    </div>
+                                   
                                     <p>Clone using the web URL.</p>
                                 </div>
-                                
+
+                                <div className={ac2 ? "pp2-2" : "none"}>
+                                    <div className="flex">
+                                        <input id="myInput2" value={ `git@github.com:${username}/${nameOfRepository}.git`} className="input"/>
+                                        <i className={tik2 ? "fa-solid fa-check" :"fa-solid fa-copy"} onClick={() => {
+                                            // Get the text field
+                                            var copyText = document.getElementById("myInput2");
+
+                                            // Select the text field
+                                            copyText.select();
+                                            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+                                            // Copy the text inside the text field
+                                            navigator.clipboard.writeText(copyText.value);
+                                            setTik2(true)
+                                            
+                                        }}/>
+                                    </div>
+                                    
+                                    <p>Use a password-protected SSH key.</p>
+                                </div>
+
+                                <div className={ac3 ? "pp2-3" : "none"}>
+                                    <div className="flex">
+                                        <input id="myInput3" value={ `gh repo clone ${username}/${nameOfRepository}`} className="input"/>
+                                        <i className={tik3 ? "fa-solid fa-check" :"fa-solid fa-copy"} onClick={() => {
+                                            // Get the text field
+                                            var copyText = document.getElementById("myInput3");
+
+                                            // Select the text field
+                                            copyText.select();
+                                            copyText.setSelectionRange(0, 99999); // For mobile devices
+
+                                            // Copy the text inside the text field
+                                            navigator.clipboard.writeText(copyText.value);
+                                            setTik3(true)
+                                            
+                                        }}/>
+                                    </div>
+                                   
+                                    <p>Work fast with our official CLI.</p>
+                                </div>
+
+
+
+
+
+
+
+
+
+
                             </div>
                             <div className="p-44">
                                 <div className="popopo">
@@ -381,6 +483,7 @@ let nameOfRepository = param.nameOfRepository
                                 
                             </div>
                         </div>
+                        
                         </div>
                     </div>
                 </div>

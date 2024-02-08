@@ -4,29 +4,32 @@ import Input from "../inputs/input";
 // let par = useParams()
 // let b = par.username
 import { createPortal } from "react-dom";
+import { repositories } from "../../../api/RepositoresApi";
 
 export default function Header1(props) {
 
-const [ac , setAc] = useState(true)
-const [ac2 , setAc2] = useState(false)
-const [ac3 , setAc3] = useState(false)
-const [ac4 , setAc4] = useState(false)
-const [ac5 , setAc5] = useState(false)
-const [ac6 , setAc6] = useState(false)
+const [ac , setAc] = useState(false)
 
+const [repose11 , setRepose11] = useState([])
 const [open , setOpen] = useState(false)
     
     let params = useParams()
+    let username = params.username
+
     let ref = useRef()
     let pathanem = ( window.location.pathname);
   let replace =   pathanem.replace("/" , "")
+  console.log(replace)
   
   
     const navigate = useNavigate()
    
     
     useEffect(() => {
-
+        repositories(username).then((e) => {
+                let a = e.length
+                setRepose11(a)
+        })
        
     },  [])
     return(
@@ -41,7 +44,7 @@ const [open , setOpen] = useState(false)
                                         <button type="button" class="btn btn-outline-secondary">
                                         <i class="bi bi-list"></i>
                                         </button>
-                                        <i class="bi bi-github"></i>
+                                        <i class="fa-brands fa-github"></i>
                                         <h4>{props.params}</h4>
                                     </div>
                         </div>
@@ -151,16 +154,10 @@ const [open , setOpen] = useState(false)
 
                     <div className="part2">
                                     <ul>
-                                        <li>
+                                        <li className={replace == username ? "focus":"noneBorder"}>
                                             <Link to={`/${props.params}`}>
 
-                                            <button className={ac ? "focus" : "noneBorder"} onClick={() => {
-                                            setAc(true)
-                                            setAc2(false)
-                                            setAc3(false)
-                                            setAc4(false)
-                                            setAc5(false)
-                                        }}>
+                                            <button  >
                                                 <div className="give-position">
                                                     <i class="fa fa-book"></i>
                                                     <h6>Overview</h6>
@@ -171,23 +168,16 @@ const [open , setOpen] = useState(false)
                                             
                                             
                                         </li>
-                                        <li >
-                                        <Link to ={`/${props.params}/repository`}>
-                                            <button className={ac2 ? "focus" : "noneBorder" } onClick={() => {
-                                                
-                                                setAc2(true)
-                                                setAc(false)
-                                                setAc3(false)
-                                                setAc4(false)
-                                                setAc5(false)
-                                                
-                                            }}>
+                                        <li className={replace == `${username}/repository` ? "focus" : "noneBorder" }>
+                                        <Link to ={`/${username}/repository`}>
+                                            <button >
+                                            
                                             <div className="give-position">
                                                     <i class="fa fa-save"></i>
                                                     
                                                         <h6>Repositories</h6>
-                                                    
-                                                        {!props.numberOfRepositories ? <div className="none"><div className="absolute">{props.numberOfRepositories}</div></div>: <div className="first"><div className="absolute">{props.numberOfRepositories}</div></div>}
+
+                                                        {!repose11 ? <div className="none"><div className="absolute">{repose11}</div></div>: <div className="first"><div className="absolute">{repose11}</div></div>}
                                                     
                                                 </div>
                                                 
@@ -198,54 +188,36 @@ const [open , setOpen] = useState(false)
                                                 
                                         </li>
                                         <li>
-                                            <button className={ac3 ?"focus" : "noneBorder"} onClick={() => {
-                                                setAc2(false)
-                                                setAc(false)
-                                                setAc3(true)
-                                                setAc4(false)
-                                                setAc5(false)
-                                            }}>
+                                            <button className={ "noneBorder"} >
                                             <div className="give-position">
                                                     <i class="fa fa-columns"></i>
                                                     <h6>Project</h6>
                                                 </div>
-                                                <div className="backgroundBlack"></div>
+                                                
                                             </button>
                                                 
 
                                         </li>
                                         <li>
-                                            <button className={ac4 ? "focus" : "noneBorder"} onClick={() => {
-                                                setAc2(false)
-                                                setAc(false)
-                                                setAc3(false)
-                                                setAc4(true)
-                                                setAc5(false)
-                                            }}>
+                                            <button className={"noneBorder"} >
                                                 <div className="give-position">
                                                     <i class="fa fa-dropbox"></i>
                                                     <h6>package</h6>
                                                 </div>
 
-                                                <div className="backgroundBlack"></div>
+                                               
                                             </button>
                                             
                                                 
                                         </li>
                                         <li>
-                                            <button className={ac5 ? "focus" : "noneBorder"} onClick={() => {
-                                                setAc2(false)
-                                                setAc(false)
-                                                setAc3(false)
-                                                setAc4(false)
-                                                setAc5(true)
-                                            }}>
+                                            <button className={"noneBorder"} >
 
                                             <div className="give-position">
                                                     <i class="fa fa-star-o"></i>
                                                     <h6>Star</h6>
                                                 </div>
-                                            <div className="backgroundBlack"></div>
+                                           
                                             </button>
                                                 
                                             

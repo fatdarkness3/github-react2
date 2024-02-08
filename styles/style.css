@@ -38,7 +38,7 @@ i {
 }
 header {
     padding: 0 20px;
-    margin:0px 10px 10px 10px;
+    
     border-bottom: #21262d solid 1px;
     background-color: #010409;
 }
@@ -76,7 +76,7 @@ header .left button {
     color: #8f8f8f;
     padding: 1px 7px 1px 7px;
     border: 1px solid #30363d;
-    margin-top: 8px;
+    
 }
 header .left button:hover {
     background-color: transparent;
@@ -121,6 +121,7 @@ i.bi-github {
     align-items: center;
     justify-content: space-between;
     gap: 20px;
+    margin-top: 15px;
 }
 .flex-button {
     display: flex;
@@ -147,12 +148,16 @@ i.bi-github {
     margin-top: 15px;
     
 }
+header .left i {
+    font-size: 30px;
+}
 
 .part2 ul  {
     flex-direction: row;
     gap: 15px;
     margin: 0;
     display: flex;
+    padding: 0;
     
 }
 .part2 .notCenter {
@@ -224,11 +229,13 @@ i.bi-github {
 
 
 
-
-.part2 ul li button.focus {
+.part2 ul li {
+    padding-bottom: 15px;
+}
+.part2 ul li.focus {
     border-bottom: 2px solid #f78166 ;
     
-    padding-bottom: 15px;
+    
 
 }
 

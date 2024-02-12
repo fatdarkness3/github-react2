@@ -6,23 +6,25 @@ import Input from "../inputs/input";
 import { createPortal } from "react-dom";
 import { repositories } from "../../../api/RepositoresApi";
 
-export default function Header1(props) {
+export default function Header1() {
 
-const [ac , setAc] = useState(false)
+
 
 const [repose11 , setRepose11] = useState([])
 const [open , setOpen] = useState(false)
-    
+const [ac , setAc] = useState(false)
+
+
     let params = useParams()
     let username = params.username
 
     let ref = useRef()
     let pathanem = ( window.location.pathname);
   let replace =   pathanem.replace("/" , "")
-  console.log(replace)
+//   console.log(replace)
   
   
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
    
     
     useEffect(() => {
@@ -41,11 +43,13 @@ const [open , setOpen] = useState(false)
                     <div className="flex">
                         <div className="cl">
                                     <div className="left">
-                                        <button type="button" class="btn btn-outline-secondary">
+                                        <button type="button" class="btn btn-outline-secondary" onClick={() => {
+                                            setAc(true)
+                                        }}>
                                         <i class="bi bi-list"></i>
                                         </button>
                                         <i class="fa-brands fa-github"></i>
-                                        <h4>{props.params}</h4>
+                                        <h4>{username}</h4>
                                     </div>
                         </div>
                         
@@ -155,7 +159,7 @@ const [open , setOpen] = useState(false)
                     <div className="part2">
                                     <ul>
                                         <li className={replace == username ? "focus":"noneBorder"}>
-                                            <Link to={`/${props.params}`}>
+                                            <Link to={`/${username}`}>
 
                                             <button  >
                                                 <div className="give-position">
@@ -227,7 +231,55 @@ const [open , setOpen] = useState(false)
                                 </div>
                 </div>
             </header>
-        
+            <div className="hamberger">
+                <div className="ham1">
+                    <i class="fa-brands fa-github"></i>
+                        <div className="relative">
+                            <span>⨯</span>
+                        </div>
+                </div>
+                <div className="ham2">
+                    <div className="ham2-1 flex3">
+                        <i class="fa-solid fa-house"></i>
+                        <span>home</span>
+                    </div>
+                    <div className="ham2-2 flex3">
+                        <i class="fa-regular fa-circle"></i>
+                        <span>Issues</span>
+                    </div>
+                    <div className="ham2-3 flex3">
+                        <i class="fa-solid fa-code-pull-request"></i>
+                        <span>Pull requests</span>
+                    </div>
+                    <div className="ham2-4 flex3">
+                        <i class="fa-solid fa-book"></i>
+                        <span>Projects</span>
+                    </div>
+                    <div className="ham2-5 flex3">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>Discussions</span>
+                    </div>
+                    <div className="ham2-6 flex3">
+                        <i class="fa-solid fa-computer"></i>
+                        <span>Codespaces</span>
+                    </div>
+                </div>
+                <div className="ham3">
+                    <div className="ham3-1 flex3">
+                        <i class="fa-solid fa-paint-roller"></i>
+                        <span>Explore</span>
+                    </div>
+                    <div className="ham3-2 flex3">
+                        <i class="fa-solid fa-gift"></i>
+                        <span>MarketPlace</span>
+                    </div>
+                    
+                </div>
+                <div className="ham4">
+
+                </div>
+                
+            </div>
         </>
     )
 }

@@ -75,7 +75,7 @@ export default function RepositoryPage() {
         
         document.title = `${getUserFromParams} (${test}) /Repository`
         
-            
+        console.log(searchValue)
             return(
                 <>
                     
@@ -101,6 +101,7 @@ export default function RepositoryPage() {
                                             
                                                 
                                                 return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {e.updated_at} language = {e.language} type={e.private} name={e.name}/>
+                                                
                                             }else if (searchValue == "" || !searchValue) {
                                                 let result1 = new Date(e.updated_at).toLocaleDateString('en-GB');
                                                 return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {result1} language = {e.language} type={e.private} name={e.name}/>

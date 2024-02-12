@@ -19,7 +19,7 @@ const [open , setOpen] = useState(false)
     let ref = useRef()
     let pathanem = ( window.location.pathname);
   let replace =   pathanem.replace("/" , "")
-  console.log(replace)
+
   
   
     const navigate = useNavigate()

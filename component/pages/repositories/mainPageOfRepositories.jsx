@@ -79,7 +79,7 @@ export default function RepositoryPage() {
             return(
                 <>
                     
-                    <Header1 params = {getUserFromParams} numberOfRepositories = {repose.length}/>
+                    <Header1/>
                     {firstLoading ? <div className="loading"><MoonLoader color="#36d7b7" /></div>  : 
                     <div className="main">
                         <div className="wrapper">

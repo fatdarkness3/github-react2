@@ -599,6 +599,7 @@ header .left i {
     margin-top: 30px;
 
 }
+
 .wrapper .showWhoIsLogin .p1 {
     display: flex;
     align-items: center;
@@ -1450,6 +1451,86 @@ header .left i {
     border-radius: 5px;
     gap: 2px;
 }
+
+.hamberger {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color:#161b22 ;
+    height: 100%;
+    width: 320px;
+    padding: 20px 20px 0 10px;
+    z-index: 5;
+}
+.hamberger .ham1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hamberger .ham1 i {
+    font-size: 30px;
+}
+.hamberger .ham1 .relative {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    transition: all 0.5s;
+}
+.hamberger .ham1 .relative span {
+    
+    font-size: 25px;
+    
+    color: #848d97;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    
+}
+.hamberger .ham1 .relative:hover {
+    background-color:#30363d ;
+    color: #fff;
+}
+.hamberger .ham2 , .hamberger .ham3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    padding-top: 30px;
+    border-bottom: 1px solid;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+.hamberger .ham2 .flex3 , .hamberger .ham3 .flex3 {
+    display: flex;
+    gap: 10px;
+}
+.hamberger .ham2 .flex3 i , .hamberger .ham3 .flex3 i {
+    width: 25px;
+}
+.ham4 {
+    padding-top: 20px;
+}
+.ham4 .ham4-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.ham4 .ham4-2  {
+    display: flex;
+    
+    flex-direction: column;
+    gap: 10px;
+}
+.ham4 .ham4-2 .p p {
+    color: #fff;
+    font-size: 13px;
+}
+
+
+
+
 
 
 

@@ -64,6 +64,7 @@ let nameOfRepository = param.nameOfRepository
         
 
         tags(username , nameOfRepository ).then((e) =>{
+
             setTest(e.length)
             
         } )
@@ -74,6 +75,7 @@ let nameOfRepository = param.nameOfRepository
            
             setRes(e)
             setIsRepositoryLoaded(true)
+
         })
 
 
@@ -143,6 +145,7 @@ let nameOfRepository = param.nameOfRepository
                 let tree = e.tree
                 
                 setRes2(tree)
+                
 
 
             })
@@ -158,7 +161,8 @@ let nameOfRepository = param.nameOfRepository
                 
                 
                 setMessageCommit(e.commit.message)
-                setTime(e.commit.committer.date)                    
+                setTime(e.commit.committer.date)   
+                                
                 
                 
             })

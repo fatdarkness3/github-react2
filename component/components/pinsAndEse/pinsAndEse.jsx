@@ -33,7 +33,7 @@ export default function PinAndEse(props) {
       repositories(username).then((e) => {
         setSet(e)
         
-        setNameOfRepository(e[2].name)
+        setNameOfRepository(e[0].name)
         // setBranch(e[2].default_branch)
         setcreate(e[2].created_at)
         setTtrue(true)
@@ -50,7 +50,7 @@ export default function PinAndEse(props) {
     useEffect(() => {
         
         
-        if(ttrue) {
+        if(ttrue && nameOfRepository) {
           commit(username , nameOfRepository ).then ((e) => {
            
             setPp(e.length)
@@ -167,13 +167,14 @@ export default function PinAndEse(props) {
                   </div>
                   
                   
-                  <Link to={`/${username}/${nameOfRepository}`}>
+                   <Link to={nameOfRepository ? `/${username}/${nameOfRepository}` : "#"}>
                 <div className="name1">
                   <h6>Created {pp} commits in 1 repository</h6>
                   <div className="ttt">
-                    <a>{username}/{nameOfRepository}</a>
+                    <a>{username}/{nameOfRepository ?nameOfRepository : "not found" }</a>
                     <p> {pp} commits</p>
                   </div>
+                  
                   
                 </div>
                 </Link>

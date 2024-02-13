@@ -1455,12 +1455,16 @@ header .left i {
 .hamberger {
     position: fixed;
     top: 0;
-    left: 0;
+    left: -50%;
     background-color:#161b22 ;
     height: 100%;
     width: 320px;
     padding: 20px 20px 0 10px;
     z-index: 5;
+    transition: all 0.5s;
+}
+.hamberger.active {
+    left: 0;
 }
 .hamberger .ham1 {
     display: flex;
@@ -1516,18 +1520,36 @@ header .left i {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 10px;
 }
 .ham4 .ham4-2  {
     display: flex;
     
     flex-direction: column;
+    gap: 15px;
+    padding-top: 20px;
+}
+.ham4 .ham4-2 .p {
+    display:flex ;
+    align-items: center;
     gap: 10px;
 }
 .ham4 .ham4-2 .p p {
     color: #fff;
     font-size: 13px;
+    margin: 0;
 }
-
+.ham4 .ham4-2 .p img{
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+}
+.ham4 .ham4-1 input.input {
+    background-color: #010409;
+    border: 1px solid blue;
+    border-radius: 5px;
+    color: #fff;
+}
 
 
 

@@ -402,6 +402,7 @@ let nameOfRepository = param.nameOfRepository
                                 <div className={ac2 || ac3 ? "none" : "pp2"}>
                                     <div className="flex">
                                         <input id="myInput" value={ `https://github.com/${username}/${nameOfRepository}.git`} className="input"/>
+                                        
                                         <i className={tik ? "fa-solid fa-check" :"fa-solid fa-copy"} onClick={() => {
                                             // Get the text field
                                             var copyText = document.getElementById("myInput");

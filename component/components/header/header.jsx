@@ -14,6 +14,8 @@ const [repose11 , setRepose11] = useState([])
 const [repose , setRepose] = useState([])
 const [open , setOpen] = useState(false)
 const [ac , setAc] = useState(false)
+const [ac2 , setAc2] = useState(false)
+const [input , setInput] = useState("")
 
 
     let params = useParams()
@@ -235,17 +237,21 @@ const [ac , setAc] = useState(false)
                                 </div>
                 </div>
             </header>
-            <div className="hamberger">
+            <div className={ac ? "hamberger active" : "hamberger" }>
                 <div className="ham1">
                     <i class="fa-brands fa-github"></i>
                         <div className="relative">
-                            <span>⨯</span>
+                            <span onClick={() => {
+                                setAc(false)
+                            }}>⨯</span>
                         </div>
                 </div>
                 <div className="ham2">
                     <div className="ham2-1 flex3">
                         <i class="fa-solid fa-house"></i>
-                        <span>home</span>
+                        <Link to={`/${username}`}>
+                            <span>Home</span>
+                        </Link>
                     </div>
                     <div className="ham2-2 flex3">
                         <i class="fa-regular fa-circle"></i>
@@ -282,19 +288,39 @@ const [ac , setAc] = useState(false)
                 <div className="ham4">
                     <div className="ham4-1">
                         <span>Repositories</span>
-                        <i class="fa-solid fa-magnifying-glass"></i>
+                        {!ac2 ?  <i class="fa-solid fa-magnifying-glass" onClick={() => {
+                            setAc2(true)
+                            
+                        }}></i> : <input type="search" className="input" onChange={(e) => {
+                            let a = e.target.value
+                            setInput(a)
+                        }}/>}
                     </div>
                     <div className="ham4-2">
                         {repose.map((e) => {
-                            console.log(e)
+                            
                             let a = []
                             a.push(e.name)
-                            return( 
-                                <div className="p">
-                                    <img src={e.archive_url}/>
-                                    <p>{a.sort()}</p>
-                                </div>
-                                )
+                            if(e.name.includes(input)) {
+
+                                return( 
+                                    <Link to={`/${username}/${a}`}>
+                                    <div className="p">
+                                        <img src={e.owner.avatar_url}/>
+                                        <p>{username} / {a.sort()}</p>
+                                    </div>
+                                    </Link>
+                                    )
+                            }else if(input == "" || !input) {
+                                return( 
+                                    <Link to={`/${username}/${a}`}>
+                                    <div className="p">
+                                        <img src={e.owner.avatar_url}/>
+                                        <p>{username} / {a.sort()}</p>
+                                    </div>
+                                    </Link>
+                                    )
+                            }
                         })}
                     </div>
                 </div>

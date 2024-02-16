@@ -43,7 +43,7 @@ const [input , setInput] = useState("")
     return(
         <>
         
-        
+        <div className={ac ? "back123" : "none"}/>
         <header >
                 <div className="column">
                     <div className="flex">
@@ -51,6 +51,7 @@ const [input , setInput] = useState("")
                                     <div className="left">
                                         <button type="button" class="btn btn-outline-secondary" onClick={() => {
                                             setAc(true)
+                                            document.getElementById("app").className = "back"
                                         }}>
                                         <i class="bi bi-list"></i>
                                         </button>
@@ -243,6 +244,7 @@ const [input , setInput] = useState("")
                         <div className="relative">
                             <span onClick={() => {
                                 setAc(false)
+                                
                             }}>⨯</span>
                         </div>
                 </div>
@@ -326,6 +328,7 @@ const [input , setInput] = useState("")
                 </div>
                 
             </div>
+            
         </>
     )
 }

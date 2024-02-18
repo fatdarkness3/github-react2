@@ -107,7 +107,7 @@ export default function RepositoryPage() {
                                                     
 
                                                     
-                                                }else if (!lan || lan == "") {
+                                                }else if (!lan || lan == "" || !lan) {
                                                     if(e.name.includes(searchValue ) || searchValue  == e.name ) {
                                                
                                             

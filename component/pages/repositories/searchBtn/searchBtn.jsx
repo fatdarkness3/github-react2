@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { repositories } from "../../../../api/RepositoresApi"
-import { useParams } from "react-router-dom"
+import { Link, useParams } from "react-router-dom"
 import { languages } from "../../../../api/languege"
 
 
@@ -13,6 +13,10 @@ export default function SearchBtn(props) {
 
     let par = useParams()
     let username = par.username
+    
+
+    
+
 
 
     useEffect(() => {
@@ -40,7 +44,14 @@ export default function SearchBtn(props) {
          })
          
        return  mmm.sort().reverse().map((e) => {
-                return <p> {e}</p>
+
+                return (
+                <Link to={`/${username}/repository/${e}`}>
+                    <p onClick={() => {
+                        setActive2(false)
+                    }}> {e}</p>
+                </Link>
+                )
          })
         
     }
@@ -109,8 +120,13 @@ export default function SearchBtn(props) {
                                                 }}></i>
                                         </div>
                                         <div className="p-2">
+                                                <Link to={`/${username}/repository`}>
+                                                    <p
+                                                    onClick={() => {
+                                                        setActive2(false)
+                                                    }}>All</p>
+                                                </Link>
                                             
-                                            <p>All</p>
                                             {show()}
 
                                         </div>
@@ -125,7 +141,7 @@ export default function SearchBtn(props) {
                                         setActive2(false)
                                     }}>
                                         <div className="givFlex">
-                                            <p>Language </p>
+                                            <p>Sort </p>
                                             
                                             <i class="fa fa-sort-down"></i> 
                                         </div>

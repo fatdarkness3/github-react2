@@ -20,6 +20,7 @@ const [input , setInput] = useState("")
 
     let params = useParams()
     let username = params.username
+    let lan = params.language
 
     let ref = useRef()
     let pathanem = ( window.location.pathname);
@@ -178,7 +179,7 @@ const [input , setInput] = useState("")
                                             
                                             
                                         </li>
-                                        <li className={replace == `${username}/repository` ? "focus" : "noneBorder" }>
+                                        <li className={replace == `${username}/repository` || replace == `${username}/repository/${lan}`  ? "focus" : "noneBorder" }>
                                         <Link to ={`/${username}/repository`}>
                                             <button >
                                             

@@ -25,9 +25,10 @@ export default function RepositoryPage() {
     
 
     let params = useParams()
-   
     let getUserFromParams = params.username
+    let lan  = params.language
     
+
 
 
     
@@ -95,8 +96,19 @@ export default function RepositoryPage() {
                                 <div className="p2">
                                     <SearchBtn setSearchValue = {setSearchValue}/>
                                     <div className="repose">
+                                        
                                         {repose.map((e , id) => {
-                                            if(e.name.includes(searchValue ) || searchValue  == e.name ) {
+                                            
+
+                                                if(e.language == lan) {
+                                                    
+                                                        
+                                                        return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {e.updated_at} language = {e.language} type={e.private} name={e.name}/>
+                                                    
+
+                                                    
+                                                }else if (!lan || lan == "") {
+                                                    if(e.name.includes(searchValue ) || searchValue  == e.name ) {
                                                
                                             
                                                 
@@ -104,9 +116,15 @@ export default function RepositoryPage() {
                                                 
                                             }else if (searchValue == "" || !searchValue) {
                                                 let result1 = new Date(e.updated_at).toLocaleDateString('en-GB');
+                                                
                                                 return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {result1} language = {e.language} type={e.private} name={e.name}/>
                                                 
                                             }
+                                                }
+                                            
+
+
+                                            
                                             
                                             
                                             

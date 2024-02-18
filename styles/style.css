@@ -312,7 +312,7 @@ header .left i {
 } */
 
 .main .p1 .userImage img {
-    width: 100%;
+    width: 300px;
     border-radius: 50%;
 }
 .main .p1 .userName p {
@@ -599,7 +599,14 @@ header .left i {
     margin-top: 30px;
 
 }
-
+.back123 {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    z-index: 300;
+    opacity: 0.2;
+}
 .wrapper .showWhoIsLogin .p1 {
     display: flex;
     align-items: center;
@@ -625,7 +632,7 @@ header .left i {
     justify-content: space-between;
     gap: 25px;
     margin-top: 10px;
-    height: 340px;
+    height: 18%;
     overflow: hidden;
 }
 .headerForBorder {
@@ -1462,6 +1469,8 @@ header .left i {
     padding: 20px 20px 0 10px;
     z-index: 5;
     transition: all 0.5s;
+    z-index: 3000;
+    box-shadow:0 10px 10px 20px rgba(0,0,0,0.1);
 }
 .hamberger.active {
     left: 0;

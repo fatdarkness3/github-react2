@@ -34,8 +34,8 @@ export default function PinAndEse(props) {
         setSet(e)
         
         setNameOfRepository(e[0].name)
-        // setBranch(e[2].default_branch)
-        setcreate(e[2].created_at)
+        
+        // setcreate(e[2].created_at)
         setTtrue(true)
         
       })
@@ -161,7 +161,7 @@ export default function PinAndEse(props) {
               </div>
               <div className="all">
               <div className="Contribution">
-                  <p className="ab"><Moment fromNow>{create}</Moment></p>
+                  <p className="ab"><Moment fromNow>{set.length == 0 ? "dont have date"  : null }</Moment></p>
                   <div className="ab2">
                   <i class="fa-solid fa-file-arrow-up"></i>
                   </div>

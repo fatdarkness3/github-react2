@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { repositories } from "../../../../api/RepositoresApi"
-import { Link, useParams } from "react-router-dom"
+import { Link, useParams , useSearchParams } from "react-router-dom"
 import { languages } from "../../../../api/languege"
 
 
@@ -23,8 +23,8 @@ export default function SearchBtn(props) {
         repositories(username).then((e) => {
             setMm(e)
         })  
-       
     } , [])
+    let [searchParams, setSearchParams] = useSearchParams();
     
 
     function show () {
@@ -46,11 +46,15 @@ export default function SearchBtn(props) {
        return  mmm.sort().reverse().map((e) => {
 
                 return (
-                <Link to={`/${username}/repository/${e}`}>
+                
                     <p onClick={() => {
+
+                        setSearchParams(`lang=${e}`)
+
                         setActive2(false)
+                        
                     }}> {e}</p>
-                </Link>
+                
                 )
          })
         

@@ -8,7 +8,7 @@ import Header1 from "../../components/header/header";
 import UserProfile from "../../components/userProfile/userProfile"
 import SearchBtn from "./searchBtn/searchBtn";
 import { MoonLoader } from "react-spinners";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import { getAnswerFromApiUserProfile } from "../../getAnswerFromApiUserProfile/getAnswerFromApiUserProfile";
 import { insideRepositories } from "../../../api/insideRepositoriesApi";
 import { api } from "../../../api/userInfo";
@@ -22,7 +22,8 @@ export default function RepositoryPage() {
     const [firstLoading , setFirstLoading] = useState(false)
     const [error , setError] = useState(false)
     const [test , setTest] = useState("")
-    
+    let [searchParams] = useSearchParams()
+    let lang =  searchParams.get("lang")
 
     let params = useParams()
     let getUserFromParams = params.username
@@ -97,37 +98,33 @@ export default function RepositoryPage() {
                                     <SearchBtn setSearchValue = {setSearchValue}/>
                                     <div className="repose">
                                         
-                                        {repose.map((e , id) => {
-                                            
+                                        {repose.filter((e) => {
 
-                                                if(e.language == lan) {
-                                                    
-                                                        
-                                                        return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {e.updated_at} language = {e.language} type={e.private} name={e.name}/>
-                                                    
-
-                                                    
-                                                }else if (!lan || lan == "" || !lan) {
-                                                    if(e.name.includes(searchValue ) || searchValue  == e.name ) {
+                                            if(e.name.includes(searchValue ) || searchValue  == e.name ) {
                                                
                                             
                                                 
-                                                return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {e.updated_at} language = {e.language} type={e.private} name={e.name}/>
-                                                
-                                            }else if (searchValue == "" || !searchValue) {
-                                                let result1 = new Date(e.updated_at).toLocaleDateString('en-GB');
-                                                
-                                                return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {result1} language = {e.language} type={e.private} name={e.name}/>
+                                              return true
                                                 
                                             }
+                                            
+                                        }).filter((e) => {
+
+                                            if(e.language == lang) {
+                                                    
+                                                        
+                                                return true;      
+                                                     
+ 
+                                                     
+                                                 }else if (!lang || lang == "") {
+                                                    return true;
                                                 }
-                                            
 
+                                        }).map((e , id) => {
+                                            
+                                             return <RenderRepose params = {getUserFromParams} id = {id}   pushed_at = {e.updated_at} language = {e.language} type={e.private} name={e.name}/>
 
-                                            
-                                            
-                                            
-                                            
                                         })}
                                             
                                        

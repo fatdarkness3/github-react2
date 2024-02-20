@@ -27,7 +27,11 @@ export function App() {
                 {/* <Route path="" element={ <HomeScreen/>}/> */}
 
                <Route path="/:username/repository" element= { <RepositoryPage/>}/>
+
+               
                <Route path="/:username/repository/:language" element= { <RepositoryPage/>}/>
+
+
                {/* <Route path="/:username/repository" element= { <RepositoryPage/>}/>  */}
                <Route path ="/:username/:nameOfRepository" element = {<InsideRepositories/>}/>
                <Route path="/:username/tab=followers" element={<Followers/>}/>

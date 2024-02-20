@@ -632,7 +632,7 @@ header .left i {
     justify-content: space-between;
     gap: 25px;
     margin-top: 10px;
-    height: 18%;
+    max-height: 340px;
     overflow: hidden;
 }
 .headerForBorder {

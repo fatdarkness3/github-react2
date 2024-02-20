@@ -1,9 +1,15 @@
+import { useEffect ,  } from "react"
 import Moment from "react-moment"
-import { Link } from "react-router-dom"
+import { Link , useSearchParams } from "react-router-dom"
 
 export default function RenderRepose(props) {
+
     
-   
+
+    
+
+    
+
     return(
         <>
     <div key = {props.id} className="father">

@@ -24,6 +24,7 @@ a {
 }
 body {
     background-color: #0d1117 !important;
+    
 }
 h1 , h2 , h3 , h4 , h5 , h6  {
     margin: 0;
@@ -967,7 +968,7 @@ header .left i {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 140px;
+    
 }
  .wrapper .part1 .header button {
     display: flex;
@@ -1559,6 +1560,38 @@ header .left i {
     border-radius: 5px;
     color: #fff;
 }
+@keyframes motion {
+    
+    0% {
+        bottom: 28%;
+        opacity: 0;
+        
+    }
+    
+    50% {
+        bottom: 30%;
+        opacity: 1;
+    }
+    
+    100% {
+        bottom: 28%;
+        opacity: 0;
+    }
+    
+}
+.main .flexing .text {
+    position: absolute;
+    left: 50%;
+    opacity: 0;
+   
+    transform: translate(-50%);
+    animation: 2s motion infinite ;
+    
+    
+}
+.main .flexing .text h1 {
+        color: #fff;
+}
 
 
 
@@ -1566,12 +1599,6 @@ header .left i {
 
 
 
-/* https://stitches.dev/ */
-/* https://www.frontendmentor.io/challenges */
-/* react portal
-modal component */
-/* https://stackoverflow.com/a/42234988 */
-/* detecting outside click modal react */
 
 
 

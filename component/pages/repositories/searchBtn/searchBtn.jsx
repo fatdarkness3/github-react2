@@ -8,6 +8,9 @@ export default function SearchBtn(props) {
   const [mm, setMm] = useState([]);
   const [active2, setActive2] = useState("");
   const [active3, setActive3] = useState("");
+  const[type , setType] = useState("")
+  const[langu , setLangu] = useState("")
+  let [searchParams , setSearchParams] = useSearchParams();
 
   let par = useParams();
   let username = par.username;
@@ -16,8 +19,31 @@ export default function SearchBtn(props) {
     repositories(username).then((e) => {
       setMm(e);
     });
+
+    
+
   }, []);
-  let [searchParams, setSearchParams] = useSearchParams();
+  useEffect(() => {
+    if(langu || type) {
+      setSearchParams( `language=${langu}&type=${type}` )
+    }
+    
+  } , [mm])
+
+
+ 
+ 
+
+  let arry = ["All" , "Public" ," Private" ,"Sources" ," Forks ", " Archived "," Can be sponsored" , "Mirrors" ,"Templates" ]
+
+
+
+
+
+
+
+
+
 
   function show() {
     let arry = [];
@@ -39,7 +65,7 @@ export default function SearchBtn(props) {
         return (
           <p
             onClick={() => {
-              setSearchParams(`lang=${e}`);
+              setLangu(e)
 
               setActive2(false);
             }}
@@ -91,15 +117,14 @@ export default function SearchBtn(props) {
               ></i>
             </div>
             <div className="p-2">
-              <p>All</p>
-              <p>Public</p>
-              <p>Private</p>
-              <p>Sources</p>
-              <p>Forks</p>
-              <p>Archived</p>
-              <p>Can be sponsored</p>
-              <p>Mirrors</p>
-              <p>Templates</p>
+              {arry.map((e) => {
+               return <p onClick={(() => {
+                setType(e)
+                console.log(type)
+
+               })}>{e}</p>
+              })}
+
             </div>
           </div>
         </div>

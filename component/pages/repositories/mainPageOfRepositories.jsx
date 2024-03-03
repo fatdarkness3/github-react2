@@ -37,7 +37,7 @@ export default function RepositoryPage() {
       getAnswerFromApiUserProfile();
     } catch {
       setError(true);
-      setFirstLoading(false);
+      
     }
 
     setError(false);
@@ -46,7 +46,9 @@ export default function RepositoryPage() {
       .then((e) => {
         setRepose(e);
       })
-
+      .finally(() => {
+        setFirstLoading(false);
+      })
       
   }, []);
 

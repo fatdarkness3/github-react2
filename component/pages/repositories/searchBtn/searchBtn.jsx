@@ -1,16 +1,16 @@
-import { useEffect, useState } from "react";
-import { repositories } from "../../../../api/RepositoresApi";
-import { Link, useParams, useSearchParams } from "react-router-dom";
-
+import { useEffect, useState } from 'react';
+import { repositories } from '../../../../api/RepositoresApi';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 
 export default function SearchBtn(props) {
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState('');
   const [mm, setMm] = useState([]);
-  const [active2, setActive2] = useState("");
-  const [active3, setActive3] = useState("");
-  const[type , setType] = useState("")
-  const[langu , setLangu] = useState("")
-  let [searchParams , setSearchParams] = useSearchParams();
+  const [active2, setActive2] = useState('');
+  const [active3, setActive3] = useState('');
+  const [type, setType] = useState('');
+  const [langu, setLangu] = useState('');
+
+  let [searchParams, setSearchParams] = useSearchParams();
 
   let par = useParams();
   let username = par.username;
@@ -19,31 +19,26 @@ export default function SearchBtn(props) {
     repositories(username).then((e) => {
       setMm(e);
     });
-
-    
-
   }, []);
   useEffect(() => {
-    if(langu || type) {
-      setSearchParams( `language=${langu}&type=${type}` )
+    if (langu || type) {
+      setSearchParams(`language=${langu}&type=${type}`);
+    } else if (searchParams.get('language') == 'All') {
+      setSearchParams(`language=&type=${type}`);
     }
-    
-  } , [mm])
-
-
- 
+  }, [type, langu]);
  
 
-  let arry = ["All" , "Public" ," Private" ,"Sources" ," Forks ", " Archived "," Can be sponsored" , "Mirrors" ,"Templates" ]
-
-
-
-
-
-
-
-
-
+  let arry = [
+    'public',
+    'private',
+    'sources',
+    'forks',
+    'archived',
+    'canBeSponsored',
+    'mirrors',
+    'templates',
+  ];
 
   function show() {
     let arry = [];
@@ -57,7 +52,6 @@ export default function SearchBtn(props) {
     let mmm = a.filter((e) => {
       return e !== null;
     });
-
     return mmm
       .sort()
       .reverse()
@@ -65,140 +59,146 @@ export default function SearchBtn(props) {
         return (
           <p
             onClick={() => {
-              setLangu(e)
+              setLangu(e);
 
               setActive2(false);
-            }}
-          >
-            {" "}
+            }}>
+            {' '}
             {e}
           </p>
         );
       });
   }
-
   return (
     <>
-      <div className="searchBtn">
+      <div className='searchBtn'>
         <input
-          type="search"
-          placeholder="Find your repository"
-          class="form-control"
-          id="exampleInputEmail1"
+          type='search'
+          placeholder='Find your repository'
+          class='form-control'
+          id='exampleInputEmail1'
           onChange={(e) => {
             let a = e.target.value;
             props.setSearchValue(a);
           }}
         />
-        <div className="hame">
+        <div className='hame'>
           <button
-            type="button"
-            class="btn btn-secondary btn-sm"
+            type='button'
+            class='btn btn-secondary btn-sm'
             onClick={() => {
               setActive(!active);
               setActive2(false);
               setActive3(false);
-            }}
-          >
-            <div className="givFlex">
+            }}>
+            <div className='givFlex'>
               <p>Type </p>
-
-              <i class="fa fa-sort-down"></i>
+              <i class='fa fa-sort-down'></i>
             </div>
           </button>
-          <div className={active ? "openSomeThing" : "none"}>
-            <div className="p-1">
+          <div className={active ? 'openSomeThing' : 'none'}>
+            <div className='p-1'>
               <span>Select type</span>
               <i
-                class="fa-solid fa-xmark"
+                class='fa-solid fa-xmark'
                 onClick={() => {
                   setActive(!active);
-                }}
-              ></i>
+                }}></i>
             </div>
-            <div className="p-2">
+            <div className='p-2'>
+              <p
+                onClick={() => {
+                  if (langu) {
+                    setSearchParams(`language=${langu}&type=`);
+                  } else {
+                    setSearchParams(false);
+                  }
+                  setType('');
+                  setActive(false);
+                }}>
+                All
+              </p>
               {arry.map((e) => {
-               return <p onClick={(() => {
-                setType(e)
-                console.log(type)
-
-               })}>{e}</p>
+                return (
+                  <p
+                    onClick={() => {
+                      setType(e);
+                      setActive(false);
+                    }}>
+                    {e}
+                  </p>
+                );
               })}
-
             </div>
           </div>
         </div>
-        <div className="hame2">
+        <div className='hame2'>
           <button
-            type="button"
-            class="btn btn-secondary btn-sm"
+            type='button'
+            class='btn btn-secondary btn-sm'
             onClick={() => {
               setActive2(!active2);
               setActive(false);
               setActive3(false);
-            }}
-          >
-            <div className="givFlex">
+            }}>
+            <div className='givFlex'>
               <p>Language </p>
-
-              <i class="fa fa-sort-down"></i>
+              <i class='fa fa-sort-down'></i>
             </div>
           </button>
-          <div className={active2 ? "openSomeThing2" : "none"}>
-            <div className="p-1">
+          <div className={active2 ? 'openSomeThing2' : 'none'}>
+            <div className='p-1'>
               <span>Select type</span>
               <i
-                class="fa-solid fa-xmark"
+                class='fa-solid fa-xmark'
                 onClick={() => {
                   setActive2(!active2);
-                }}
-              ></i>
+                }}></i>
             </div>
-            <div className="p-2">
-              <Link to={`/${username}/repository`}>
-                <p
-                  onClick={() => {
-                    setActive2(false);
-                  }}
-                >
-                  All
-                </p>
-              </Link>
-
+            <div className='p-2'>
+              <p
+                onClick={() => {
+                  setActive2(false);
+                  if (type) {
+                    setSearchParams(`language=&type=${type}`);
+                  } else {
+                    setSearchParams(false);
+                  }
+                  setLangu('');
+                }}>
+                All
+              </p>
               {show()}
             </div>
           </div>
         </div>
 
-        <div className="hame3">
+        <div className='hame3'>
           <button
-            type="button"
-            class="btn btn-secondary btn-sm"
+            type='button'
+            class='btn btn-secondary btn-sm'
             onClick={() => {
               setActive3(!active3);
               setActive(false);
               setActive2(false);
-            }}
-          >
-            <div className="givFlex">
+            }}>
+            <div className='givFlex'>
               <p>Sort </p>
-
-              <i class="fa fa-sort-down"></i>
+              <i class='fa fa-sort-down'></i>
             </div>
           </button>
-          <div className={active3 ? "openSomeThing3" : "none"}>
-            <div className="p-1">
+          <div className={active3 ? 'openSomeThing3' : 'none'}>
+            <div className='p-1'>
               <span>Select order</span>
               <i
-                class="fa-solid fa-xmark"
+                class='fa-solid fa-xmark'
                 onClick={() => {
                   setActive3(!active3);
                   setActive(false);
                   setActive2(false);
-                }}
-              ></i>
+                }}></i>
             </div>
-            <div className="p-2">
+            <div className='p-2'>
               <p>All</p>
               <p>Last updated</p>
               <p>Name</p>

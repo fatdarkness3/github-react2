@@ -6,6 +6,7 @@ import React from 'react';
 
 import InsideRepositories from '../component/pages/repositories/renderRepositories/insideRepositories/insideRepositories.jsx';
 
+
 export function App() {
   return (
     <Routes>
@@ -13,7 +14,6 @@ export function App() {
       <Route path='/:username' element={<Profile />} />
 
       <Route path='/:username/repository' element={<RepositoryPage />} />
-
       <Route
         path='/:username/:nameOfRepository'
         element={<InsideRepositories />}

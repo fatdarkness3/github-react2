@@ -9,21 +9,20 @@ import SearchBtn from './searchBtn/searchBtn';
 import { MoonLoader } from 'react-spinners';
 import { useParams, useSearchParams } from 'react-router-dom';
 import { getAnswerFromApiUserProfile } from '../../getAnswerFromApiUserProfile/getAnswerFromApiUserProfile';
-import { insideRepositories } from '../../../api/insideRepositoriesApi';
 import { api } from '../../../api/userInfo';
-import InsideRepositories from './renderRepositories/insideRepositories/insideRepositories';
 
 export default function RepositoryPage() {
   const [repose, setRepose] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
   const [firstLoading, setFirstLoading] = useState(false);
-  
+
   const [error, setError] = useState(false);
   const [test, setTest] = useState('');
   let [searchParams] = useSearchParams();
 
-  let lang = searchParams.get('lang');
+  let lang = searchParams.get('language');
+  let type = searchParams.get('type');
   let params = useParams();
   let getUserFromParams = params.username;
 
@@ -37,7 +36,6 @@ export default function RepositoryPage() {
       getAnswerFromApiUserProfile();
     } catch {
       setError(true);
-      
     }
 
     setError(false);
@@ -48,13 +46,11 @@ export default function RepositoryPage() {
       })
       .finally(() => {
         setFirstLoading(false);
-      })
-      
+      });
   }, []);
 
   document.title = `${getUserFromParams} (${test}) /Repository`;
 
-  console.log(searchValue);
   return (
     <>
       <Header1 />

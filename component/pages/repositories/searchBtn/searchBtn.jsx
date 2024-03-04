@@ -9,6 +9,7 @@ export default function SearchBtn(props) {
   const [active3, setActive3] = useState('');
   const [type, setType] = useState('');
   const [langu, setLangu] = useState('');
+  const [sort ,setSort] = useState("")
 
   let [searchParams, setSearchParams] = useSearchParams();
 
@@ -21,12 +22,10 @@ export default function SearchBtn(props) {
     });
   }, []);
   useEffect(() => {
-    if (langu || type) {
-      setSearchParams(`language=${langu}&type=${type}`);
-    } else if (searchParams.get('language') == 'All') {
-      setSearchParams(`language=&type=${type}`);
-    }
-  }, [type, langu]);
+    if (langu || type || sort) {
+      setSearchParams(`language=${langu}&type=${type}&sort=${sort}`);
+    } 
+  }, [type , langu , sort]);
  
 
   let arry = [
@@ -39,6 +38,11 @@ export default function SearchBtn(props) {
     'mirrors',
     'templates',
   ];
+  let arrysOfSort = [
+    "Lastupdated",
+    "Name",
+    "Stars",
+  ]
 
   function show() {
     let arry = [];
@@ -108,8 +112,8 @@ export default function SearchBtn(props) {
             <div className='p-2'>
               <p
                 onClick={() => {
-                  if (langu) {
-                    setSearchParams(`language=${langu}&type=`);
+                  if (langu || sort) {
+                    setSearchParams(`language=${langu}&type=&sort=${sort}`);
                   } else {
                     setSearchParams(false);
                   }
@@ -159,8 +163,8 @@ export default function SearchBtn(props) {
               <p
                 onClick={() => {
                   setActive2(false);
-                  if (type) {
-                    setSearchParams(`language=&type=${type}`);
+                  if (type || sort) {
+                    setSearchParams(`language=&type=${type}&sort=${sort}`);
                   } else {
                     setSearchParams(false);
                   }
@@ -183,6 +187,8 @@ export default function SearchBtn(props) {
               setActive2(false);
             }}>
             <div className='givFlex'>
+
+
               <p>Sort </p>
               <i class='fa fa-sort-down'></i>
             </div>
@@ -199,10 +205,21 @@ export default function SearchBtn(props) {
                 }}></i>
             </div>
             <div className='p-2'>
-              <p>All</p>
-              <p>Last updated</p>
-              <p>Name</p>
-              <p>Stars</p>
+              <p onClick={() => {
+                setActive3(false)
+                if (type || langu) {
+                    setSearchParams(`language=${langu}&type=${type}&sort=`);
+                  } else {
+                    setSearchParams(false);
+                  }
+              }}>All</p>
+              {arrysOfSort.map((e)=> {
+               return <p onClick={() => {
+                setSort(e)
+                setActive3(false)
+               }}>{e}</p>
+                
+              })}
             </div>
           </div>
         </div>

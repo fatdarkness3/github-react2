@@ -407,16 +407,6 @@ header .left i {
     font-size: 14px;
     cursor: pointer;
 }
-
-
-/* .hame2 .openSomeThing2 .p-2  {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-} */
-
-
-
 .hame2 .openSomeThing2 .p-2 {
     color: #fff;
 }
@@ -428,7 +418,6 @@ header .left i {
     border: 1px solid #363b42;
     height: 100%;
 }
-
 .p2 .searchBtn input {
     background: transparent;
     border: 1px solid #30363d;
@@ -536,24 +525,24 @@ header .left i {
 .type .part1-1 div.yellow {
     background-color: #F1E05C;
 }
-.type .part1-1 div.blue {
+.type .part1-1 div.blue , .part1-11.margin div.blue {
     background-color: #3178c6;
 }
-.type .part1-1 div.purple{
+.type .part1-1 div.purple , .part1-11.margin div.purple{
 
     background-color: #563d7c;
 
 }
-.type .part1-1 div.red {
+.type .part1-1 div.red , .part1-11.margin div.red {
     background-color: #e34c26;
 }
-.type .part1-1 div.blueLight {
+.type .part1-1 div.blueLight ,.part1-11.margin div.blueLight  {
     background-color: #2f81f7;
 }
-.type .part1-1 div.gray {
+.type .part1-1 div.gray , .part1-11.margin div.gray  {
     background-color: #555555;
 }
-.type .part1-1 div.orange {
+.type .part1-1 div.orange , .part1-11.margin div.orange {
     background-color: #b07219;
 }
 
@@ -840,9 +829,6 @@ header .left i {
     position: relative;
     margin-top: 20px;
 }
-
-
-
 .abBlack::before {
     width: 100%;
     height: 100%;
@@ -852,7 +838,6 @@ header .left i {
     top: 0;
     left: 0;
 }
-
 .abBlack {
     width: 100%;
     height: 100%;
@@ -869,11 +854,9 @@ header .left i {
     border: 1px solid #30363d;
     border-radius: 10px;
 }
-
 .background .part1 button input {
     width: 100%;
 }
-
 .background .part1 button input :is(:focus-visible) , .background .part1 button input {
     border: none;
     outline: none;
@@ -1490,6 +1473,7 @@ header .left i {
     height: 30px;
     border-radius: 5px;
     transition: all 0.5s;
+    cursor: pointer;
 }
 .hamberger .ham1 .relative span {
     
@@ -1525,12 +1509,24 @@ header .left i {
 }
 .ham4 {
     padding-top: 20px;
+    height: 280px;
+    overflow: scroll;
 }
+.ham4::-webkit-scrollbar {
+    width: 5px;
+}
+.ham4::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  .ham4::-webkit-scrollbar-thumb:hover {
+    background-color: #fff;
+  }
 .ham4 .ham4-1 {
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
+    padding: 0 10px;
 }
 .ham4 .ham4-2  {
     display: flex;
@@ -1668,3 +1664,7 @@ header .left i {
     }
     
 }
+
+
+/* xampp
+wampp */

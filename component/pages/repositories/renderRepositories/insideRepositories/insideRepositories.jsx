@@ -58,10 +58,12 @@ export default function InsideRepositories() {
     branch(username, nameOfRepository).then((e) => {
       setBranch1(e);
     });
+    
 
-    getReadME(username, nameOfRepository).then((e) => {
-      setReadMe(e);
-    });
+      getReadME(username, nameOfRepository).then((e) => {
+        setReadMe(e);
+      })
+    
 
     languages(username, nameOfRepository).then((e) => {
       setPopopo(e);
@@ -481,7 +483,7 @@ export default function InsideRepositories() {
               </div>
             </div>
             <div className='readMe'>
-              <h5>{readMe1}</h5>
+              <h5>{readMe1 == "404: Not Found" ? "Empty" : readMe1}</h5>
             </div>
           </div>
 

@@ -13,8 +13,8 @@ export default function SearchBtn(props) {
 
   let [searchParams, setSearchParams] = useSearchParams();
 
-  let par = useParams();
-  let username = par.username;
+
+  let username = props.username;
 
   useEffect(() => {
     repositories(username).then((e) => {
@@ -23,10 +23,13 @@ export default function SearchBtn(props) {
   }, []);
   useEffect(() => {
     if (langu || type || sort) {
-      setSearchParams(`language=${langu}&type=${type}&sort=${sort}`);
+      setSearchParams(`tab=repositories&language=${langu}&type=${type}&sort=${sort}`);
     } 
   }, [type , langu , sort]);
+  
+
  
+  
 
   let arry = [
     'public',
@@ -43,12 +46,16 @@ export default function SearchBtn(props) {
     "Name",
     "Stars",
   ]
+ 
+
+
 
   function show() {
     let arry = [];
     mm.map((e) => {
       let a = e.language;
       arry.push(a);
+      
     });
 
     let a = [...new Set(arry)];
@@ -67,7 +74,7 @@ export default function SearchBtn(props) {
 
               setActive2(false);
             }}>
-            {' '}
+            
             {e}
           </p>
         );
@@ -82,8 +89,10 @@ export default function SearchBtn(props) {
           class='form-control'
           id='exampleInputEmail1'
           onChange={(e) => {
+
             let a = e.target.value;
             props.setSearchValue(a);
+
           }}
         />
         <div className='hame'>
@@ -113,11 +122,17 @@ export default function SearchBtn(props) {
               <p
                 onClick={() => {
                   if (langu || sort) {
-                    setSearchParams(`language=${langu}&type=&sort=${sort}`);
+                    // setSearchParams(`tab=repository&language=${langu}&type=&sort=${sort}`);
+                    searchParams.delete("type")
+                    setSearchParams(searchParams)
+
                   } else {
-                    setSearchParams(false);
+                    
+                    setSearchParams("tab=repositories")
                   }
+                  
                   setType('');
+                  
                   setActive(false);
                 }}>
                 All
@@ -164,11 +179,16 @@ export default function SearchBtn(props) {
                 onClick={() => {
                   setActive2(false);
                   if (type || sort) {
-                    setSearchParams(`language=&type=${type}&sort=${sort}`);
+                    // setSearchParams(`tab=repository&language=&type=${type}&sort=${sort}`);
+                    searchParams.delete("language")
+                    setSearchParams(searchParams)
                   } else {
-                    setSearchParams(false);
+                    // searchParams.delete("language" , "type" , "sort" )
+                    
+                    setSearchParams("tab=repositories")
                   }
                   setLangu('');
+                  
                 }}>
                 All
               </p>
@@ -208,10 +228,15 @@ export default function SearchBtn(props) {
               <p onClick={() => {
                 setActive3(false)
                 if (type || langu) {
-                    setSearchParams(`language=${langu}&type=${type}&sort=`);
+                    // setSearchParams(`tab=repository&language=${langu}&type=${type}&sort=`);
+                    searchParams.delete("sort")
+                    setSearchParams(searchParams)
+
                   } else {
-                    setSearchParams(false);
+                    // searchParams.delete("language" , "type" , "sort" )
+                    setSearchParams("tab=repositories")
                   }
+                  setSort("")
               }}>All</p>
               {arrysOfSort.map((e)=> {
                return <p onClick={() => {

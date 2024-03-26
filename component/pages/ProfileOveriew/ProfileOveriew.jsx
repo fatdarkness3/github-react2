@@ -7,16 +7,15 @@ import { api } from '../../../api/userInfo';
 import Loading from '../../components/loading/loading';
 import Errors from '../../components/errors/errors';
 
-export default function Profile() {
+export default function Profile(usename) {
   const param = useParams();
 
   const [name, setName] = useState('');
   const [loading, setLoading] = useState(true);
   const [matn, setMatn] = useState(false);
-  let getUserFromParams = param.username;
-
+  let getUserFromParams2 = param.username;
   useEffect(() => {
-    api(getUserFromParams)
+    api(getUserFromParams2)
       .then((e) => {
         setName(e);
       })
@@ -26,8 +25,8 @@ export default function Profile() {
       });
   }, []);
   document.title = name
-    ? `${getUserFromParams} (${name.name})`
-    : `${getUserFromParams}`;
+    ? `${getUserFromParams2} (${name.name})`
+    : `${getUserFromParams2}`;
   useEffect(() => {
     if (name) {
       setLoading(false);
@@ -35,7 +34,7 @@ export default function Profile() {
   }, [name]);
   return (
     <>
-      <Header1 params={getUserFromParams} />
+      <Header1 params={getUserFromParams2} />
       {loading ? (
         <div className='center'>
           <Loading />
@@ -55,8 +54,8 @@ export default function Profile() {
                 </>
               ) : (
                 <>
-                  <UserProfile params={getUserFromParams} />
-                  <PinAndEse params={getUserFromParams} />
+                  <UserProfile params={getUserFromParams2} />
+                  <PinAndEse params={getUserFromParams2} />
                 </>
               )}
             </div>

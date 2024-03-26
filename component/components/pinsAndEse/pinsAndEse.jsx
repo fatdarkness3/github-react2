@@ -9,6 +9,7 @@ import { commit } from '../../../api/commit';
 
 export default function PinAndEse(props) {
   const [set, setSet] = useState([]);
+  const [time, setTime] = useState('');
   const [active, setActive] = useState('');
   const [nameOfRepository, setNameOfRepository] = useState([]);
   const [ttrue, setTtrue] = useState(false);
@@ -19,10 +20,15 @@ export default function PinAndEse(props) {
   useEffect(() => {
     repositories(username).then((e) => {
       setSet(e);
+
+      setTime(e[0].pushed_at);
       setNameOfRepository(e[0].name);
+      console.log(e);
+
       setTtrue(true);
     });
   }, []);
+
   useEffect(() => {
     if (ttrue && nameOfRepository) {
       commit(username, nameOfRepository).then((e) => {
@@ -127,9 +133,7 @@ export default function PinAndEse(props) {
         <div className='all'>
           <div className='Contribution'>
             <p className='ab'>
-              <Moment fromNow>
-                {set.length == 0 ? 'dont have date' : null}
-              </Moment>
+              <Moment fromNow>{time ? time : 'dont have date'}</Moment>
             </p>
             <div className='ab2'>
               <i class='fa-solid fa-file-arrow-up'></i>

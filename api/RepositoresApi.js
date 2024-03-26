@@ -9,7 +9,7 @@ async function repositories(username) {
       })
 
 let render =  await octokit.request('GET /users/{username}/repos', {
-  username: username , 
+  username: username ,
   headers: {
      'X-GitHub-Api-Version': '2022-11-28'
    }

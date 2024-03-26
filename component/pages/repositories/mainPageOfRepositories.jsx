@@ -11,7 +11,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
 import { getAnswerFromApiUserProfile } from '../../getAnswerFromApiUserProfile/getAnswerFromApiUserProfile';
 import { api } from '../../../api/userInfo';
 
-export default function RepositoryPage() {
+export default function RepositoryPage(username) {
   const [repose, setRepose] = useState([]);
   const [searchValue, setSearchValue] = useState('');
 
@@ -19,13 +19,15 @@ export default function RepositoryPage() {
 
   const [error, setError] = useState(false);
   const [test, setTest] = useState('');
+  const [sss, setSss] = useState([]);
+
   let [searchParams] = useSearchParams();
 
   let lang = searchParams.get('language');
-  let type = searchParams.get('type');
   let params = useParams();
   let getUserFromParams = params.username;
-
+  
+  
   useEffect(() => {
     api(getUserFromParams).then((e) => {
       setTest(e.name);
@@ -51,6 +53,26 @@ export default function RepositoryPage() {
 
   document.title = `${getUserFromParams} (${test}) /Repository`;
 
+
+    let result = repose
+
+    .filter((e) => {
+      if (
+        e.name.includes(searchValue) ||
+        searchValue == e.name
+      ) {
+        return true;
+      }
+    })
+    .filter((e) => {
+      if (e.language == lang) {
+        return true;
+      } else if (!lang || lang == '') {
+        return true;
+      }
+    })
+
+
   return (
     <>
       <Header1 />
@@ -69,25 +91,18 @@ export default function RepositoryPage() {
               )}
 
               <div className='p2'>
-                <SearchBtn setSearchValue={setSearchValue} />
+                <div className='clearFilter'>
+
+
+                  <h6>{result.length} results found</h6>
+
+                </div>
+
+                <SearchBtn setSearchValue={setSearchValue} username = {getUserFromParams} />
                 <div className='repose'>
-                  {repose
-                    .filter((e) => {
-                      if (
-                        e.name.includes(searchValue) ||
-                        searchValue == e.name
-                      ) {
-                        return true;
-                      }
-                    })
-                    .filter((e) => {
-                      if (e.language == lang) {
-                        return true;
-                      } else if (!lang || lang == '') {
-                        return true;
-                      }
-                    })
-                    .map((e, id) => {
+                  {
+                    result.map((e, id) => {
+                      
                       return (
                         <RenderRepose
                           params={getUserFromParams}

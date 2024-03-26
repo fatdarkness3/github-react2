@@ -17,7 +17,7 @@ export default function ShowSomeRepositories(props) {
             </Link>
         <div className="type">
                 <div className="part1-11 margin">
-                    <div></div>
+                    <div className={props.language =="CSS" ? "purple" : null || props.language =="JavaScript" ? "yellow" :null || props.language == "TypeScript" ? "blue" : null || props.language == "HTML" ? "red":null || props.language == "Objective-C" ? "blueLight" : null || props.language == "C" ? "gray" : null || props.language == "Java" ? "orange" : null || !props.language ?"none" :null}></div>
                     <p>{props.language}</p>
                 </div>
                 

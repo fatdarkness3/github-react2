@@ -4,7 +4,7 @@ import Input from '../inputs/input';
 import { createPortal } from 'react-dom';
 import { repositories } from '../../../api/RepositoresApi';
 
-export default function Header1() {
+export default function Header2() {
   const [repose11, setRepose11] = useState([]);
   const [repose, setRepose] = useState([]);
   const [open, setOpen] = useState(false);

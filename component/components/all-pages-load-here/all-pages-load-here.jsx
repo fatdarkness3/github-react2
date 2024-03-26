@@ -1,7 +1,7 @@
 import { useSearchParams } from 'react-router-dom';
 import RepositoryPage from '../../pages/repositories/mainPageOfRepositories';
 import Profile from '../../pages/ProfileOveriew/ProfileOveriew';
-
+import Project from '../../pages/project/project';
 
 export default function LoadAllPages() {
   const [serach, setSearch] = useSearchParams();
@@ -10,7 +10,10 @@ export default function LoadAllPages() {
   
   if (tabValueFromeSearchParams == 'repositories') {
     return <RepositoryPage/>;
-  } else {
+  }else if( tabValueFromeSearchParams == "project") {
+    return <Project/>
+  }
+   else {
     return <Profile/>;
   }
 }

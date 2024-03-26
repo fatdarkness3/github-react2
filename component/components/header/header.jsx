@@ -1,4 +1,4 @@
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import Input from '../inputs/input';
 import { createPortal } from 'react-dom';
@@ -11,13 +11,14 @@ export default function Header1() {
   const [ac, setAc] = useState(false);
   const [ac2, setAc2] = useState(false);
   const [input, setInput] = useState('');
+  const[search  , setSearchParams] = useSearchParams()
 
   let params = useParams();
   let username = params.username;
   let ref = useRef();
   let pathanem = window.location.pathname;
   let replace = pathanem.replace('/', '');
-  let sech = window.location.search;
+  
 
   useEffect(() => {
     repositories(replace).then((e) => {
@@ -112,7 +113,7 @@ export default function Header1() {
 
           <div className='part2'>
             <ul>
-              <li className={!sech ? 'focus' : 'noneBorder'}>
+              <li className={search == "" ? 'focus' : 'noneBorder'}>
                 <Link to={`/${username}`}>
                   <button>
                     <div className='give-position'>
@@ -124,9 +125,7 @@ export default function Header1() {
               </li>
               <li
                 className={
-                  // replace == `${username}/repository` ||
-                  // replace == `${username}/repository/${lan}`
-                  sech ? 'focus' : 'noneBorder'
+                  search.get("tab") == "repositories" ? 'focus' : 'noneBorder'
                 }>
                 <Link to={`?tab=repositories`}>
                   <button>
@@ -148,7 +147,9 @@ export default function Header1() {
                   </button>
                 </Link>
               </li>
-              <li>
+              <li className={
+                  search.get("tab") == "project" ? 'focus' : 'noneBorder'
+                }>
                 <Link to={'?tab=project'}>
                   <button className='noneBorder'>
                     <div className='give-position'>

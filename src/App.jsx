@@ -3,6 +3,7 @@ import HomePage from '../component/pages/homePage/homePage.jsx';
 import React from 'react';
 import InsideRepositories from '../component/pages/repositories/renderRepositories/insideRepositories/insideRepositories.jsx';
 import LoadAllPages from '../component/components/all-pages-load-here/all-pages-load-here.jsx';
+import Search from '../component/pages/search/search.jsx';
 
 export function App() {
   
@@ -16,6 +17,7 @@ export function App() {
           path='/:username/:nameOfRepository'
           element={<InsideRepositories />}
         />
+        <Route path="/search" element={<Search/>} />
       </Routes>
     </>
   );

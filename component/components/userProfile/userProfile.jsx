@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 // import { getAnswerFromApiUserProfile } from "../../getAnswerFromApiUserProfile/getAnswerFromApiUserProfile"
 import { api } from '../../../api/userInfo';
 import Link from 'antd/es/typography/Link';
+import "../../../styles/style.css"
 
 export default function UserProfile(props) {
   // let cont = useContext(Context1)

@@ -29,15 +29,16 @@ export default function Input() {
             <form className="f" onSubmit={(e) => {
             
             e.preventDefault()
-            if(replace == params.username) {
+            // if(replace == params.username) {
 
-               navigate(`/${set}`)
+               navigate(`/search?q=${set}&type=repositories`)
                 location.reload();
 
-            }else if(replace == `${params.username}/repository`){
-                navigate(`/${set}/repository`)
-                location.reload();
-            }
+            // }
+            // else if(replace == `${params.username}/repository`){
+            //     navigate(`/${set}/repository`)
+            //     location.reload();
+            // }
             
         }} >
                     <button type="button" class="btn btn-outline-secondary bbb">

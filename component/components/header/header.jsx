@@ -13,6 +13,7 @@ export default function Header1() {
   const [input, setInput] = useState('');
   const[search  , setSearchParams] = useSearchParams()
 
+
   let params = useParams();
   let username = params.username;
   let ref = useRef();
@@ -20,13 +21,44 @@ export default function Header1() {
   let replace = pathanem.replace('/', '');
   
 
+
+  
+  useEffect(() => {
+    
+    
+    if(open) {
+     
+
+        document.addEventListener("click" , (e) => {
+        if (e.target !== ref.current) {
+            setOpen(false)
+         }
+          
+        })
+     
+    }
+    
+    
+  } , [open])
+
   useEffect(() => {
     repositories(replace).then((e) => {
       let a = e.length;
       setRepose11(a);
       setRepose(e);
     });
+    
+     
+
+        
+          
+
+        
+      
+    
   }, []);
+
+
   return (
     <>
       <div className={ac ? 'back123' : 'none'} />
@@ -51,35 +83,41 @@ export default function Header1() {
 
             <div className='f'>
               <div className='right'>
-                {open
+                {open == true
                   ? createPortal(
-                      <div className='abBlack'>
+                    
+                      <div  className='abBlack'>
                         <div className='wrapper'>
-                          <div className='content'>
-                            <Input />
+                          <div  className='content'>
+                            <Input select = {ref} />
                           </div>
                         </div>
                       </div>,
-
-                      document.body
+                      document.body,
+                     
                     )
                   : null}
-
+                    
                 <button
                   type='button'
                   class='btn btn-outline-secondary bbb'
+                  
                   onClick={() => {
+                    
+
                     setOpen(true);
+                    
                   }}>
-                  <div className='div' ref={ref}>
+                  <div className='div'>
                     {/* <Input/> */}
                   </div>
 
                   <i class='fa fa-search'></i>
                   <input
+                  
                     onChange={(e) => {
                       // let val = e.target.value
-                      // setSet(val)
+                      
                     }}
                     className='input'
                     type='search'

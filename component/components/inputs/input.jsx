@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
-export default function Input() {
+export default function Input(props) {
 
     const [set , setSet] = useState("")
     let params = useParams()
@@ -11,7 +11,7 @@ export default function Input() {
 
   let replace =   pathanem.replace("/" , "")
 
- 
+ let sel = props.select
     
   const navigate = useNavigate()
 
@@ -46,7 +46,7 @@ export default function Input() {
 
                         <i class="fa-solid fa-magnifying-glass"></i>
 
-                        <input type="search" onChange={(e) => {
+                        <input ref={sel}  type="search" onChange={(e) => {
                             let a  = e.target.value 
                             setSet(a)
                             

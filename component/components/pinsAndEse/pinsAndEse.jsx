@@ -23,7 +23,7 @@ export default function PinAndEse(props) {
 
       setTime(e[0].pushed_at);
       setNameOfRepository(e[0].name);
-      console.log(e);
+     
 
       setTtrue(true);
     });

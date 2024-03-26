@@ -199,9 +199,11 @@ export default function SearchBtn(props) {
               <i
                 class='fa-solid fa-xmark'
                 onClick={() => {
+
                   setActive3(!active3);
                   setActive(false);
                   setActive2(false);
+                  
                 }}></i>
             </div>
             <div className='p-2'>

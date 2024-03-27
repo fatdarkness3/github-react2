@@ -11,23 +11,19 @@ import { useParams, useSearchParams } from 'react-router-dom';
 import { getAnswerFromApiUserProfile } from '../../getAnswerFromApiUserProfile/getAnswerFromApiUserProfile';
 import { api } from '../../../api/userInfo';
 
-export default function RepositoryPage(username) {
+export default function RepositoryPage() {
   const [repose, setRepose] = useState([]);
   const [searchValue, setSearchValue] = useState('');
-
   const [firstLoading, setFirstLoading] = useState(false);
-
   const [error, setError] = useState(false);
   const [test, setTest] = useState('');
   const [sss, setSss] = useState([]);
 
   let [searchParams] = useSearchParams();
-
   let lang = searchParams.get('language');
   let params = useParams();
   let getUserFromParams = params.username;
-  
-  
+
   useEffect(() => {
     api(getUserFromParams).then((e) => {
       setTest(e.name);
@@ -53,14 +49,9 @@ export default function RepositoryPage(username) {
 
   document.title = `${getUserFromParams} (${test}) /Repository`;
 
-
-    let result = repose
-
+  let result = repose
     .filter((e) => {
-      if (
-        e.name.includes(searchValue) ||
-        searchValue == e.name
-      ) {
+      if (e.name.includes(searchValue) || searchValue == e.name) {
         return true;
       }
     })
@@ -70,8 +61,7 @@ export default function RepositoryPage(username) {
       } else if (!lang || lang == '') {
         return true;
       }
-    })
-
+    });
 
   return (
     <>
@@ -92,28 +82,27 @@ export default function RepositoryPage(username) {
 
               <div className='p2'>
                 <div className='clearFilter'>
-
-
-                  <h6>{result.length} results found</h6>
-
+                  {/* <h6>{result.length} results found</h6> */}
                 </div>
 
-                <SearchBtn setSearchValue={setSearchValue} username = {getUserFromParams} />
+                <SearchBtn
+                  results={result.length}
+                  setSearchValue={setSearchValue}
+                  username={getUserFromParams}
+                />
                 <div className='repose'>
-                  {
-                    result.map((e, id) => {
-                      
-                      return (
-                        <RenderRepose
-                          params={getUserFromParams}
-                          id={id}
-                          pushed_at={e.updated_at}
-                          language={e.language}
-                          type={e.private}
-                          name={e.name}
-                        />
-                      );
-                    })}
+                  {result.map((e, id) => {
+                    return (
+                      <RenderRepose
+                        params={getUserFromParams}
+                        id={id}
+                        pushed_at={e.updated_at}
+                        language={e.language}
+                        type={e.private}
+                        name={e.name}
+                      />
+                    );
+                  })}
                 </div>
               </div>
             </div>

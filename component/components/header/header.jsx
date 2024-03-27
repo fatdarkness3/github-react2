@@ -17,6 +17,7 @@ export default function Header1() {
   let params = useParams();
   let username = params.username;
   let ref = useRef();
+  let ref2 = useRef()
   let pathanem = window.location.pathname;
   let replace = pathanem.replace('/', '');
   
@@ -26,20 +27,27 @@ export default function Header1() {
   useEffect(() => {
     
     
-    if(open) {
+    
      
 
         document.addEventListener("click" , (e) => {
-        if (e.target !== ref.current) {
-            setOpen(false)
-         }
+         
+
+            if(e.target == ref.current ) {
+              setOpen(false)
+            }
           
+            if(e.target == ref2.current) {
+              setAc(false)
+            }
+         
         })
+        
      
-    }
     
     
-  } , [open])
+    
+  } , [])
 
   useEffect(() => {
     repositories(replace).then((e) => {
@@ -61,7 +69,7 @@ export default function Header1() {
 
   return (
     <>
-      <div className={ac ? 'back123' : 'none'} />
+      <div ref={ref2} className={ac ? 'back123' : 'none'} />
       <header>
         <div className='column'>
           <div className='flex'>
@@ -86,10 +94,10 @@ export default function Header1() {
                 {open == true
                   ? createPortal(
                     
-                      <div  className='abBlack'>
+                      <div ref = {ref}   className='abBlack'>
                         <div className='wrapper'>
                           <div  className='content'>
-                            <Input select = {ref} />
+                            <Input />
                           </div>
                         </div>
                       </div>,

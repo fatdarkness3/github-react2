@@ -14,7 +14,7 @@ export default function Header2() {
 
   let params = useParams();
   let username = params.username;
-  let nameOfRepository = params.nameOfRepository
+  let nameOfRepository = params.nameOfRepository;
   let ref = useRef();
 
   useEffect(() => {
@@ -42,13 +42,14 @@ export default function Header2() {
                   <i class='bi bi-list'></i>
                 </button>
                 <i class='fa-brands fa-github'></i>
-                <h4>{username} / {nameOfRepository}</h4>
+                <h4>
+                  {username} / {nameOfRepository}
+                </h4>
               </div>
             </div>
 
             <div className='f'>
               <div className='right'>
-                
                 {open
                   ? createPortal(
                       <div className='abBlack'>
@@ -137,7 +138,7 @@ export default function Header2() {
               <li>
                 <button className='noneBorder'>
                   <div className='give-position'>
-                    <i class='fa fa-star-o'></i>
+                    <i class='fa-solid fa-table-columns'></i>
                     <h6>Projects</h6>
                   </div>
                 </button>
@@ -145,7 +146,7 @@ export default function Header2() {
               <li>
                 <button className='noneBorder'>
                   <div className='give-position'>
-                    <i class='fa fa-star-o'></i>
+                    <i class='fa-solid fa-book-open'></i>
                     <h6>Wiki</h6>
                   </div>
                 </button>
@@ -153,7 +154,7 @@ export default function Header2() {
               <li>
                 <button className='noneBorder'>
                   <div className='give-position'>
-                    <i class='fa fa-star-o'></i>
+                    <i class='fa-solid fa-shield'></i>
                     <h6>Security</h6>
                   </div>
                 </button>
@@ -161,7 +162,7 @@ export default function Header2() {
               <li>
                 <button className='noneBorder'>
                   <div className='give-position'>
-                    <i class='fa fa-star-o'></i>
+                    <i class='fa-solid fa-chart-line'></i>
                     <h6>Insights</h6>
                   </div>
                 </button>
@@ -169,7 +170,7 @@ export default function Header2() {
               <li>
                 <button className='noneBorder'>
                   <div className='give-position'>
-                    <i class='fa fa-star-o'></i>
+                    <i class='fa-solid fa-gear'></i>
                     <h6>Settings</h6>
                   </div>
                 </button>

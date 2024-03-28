@@ -22,10 +22,6 @@ export default function SearchBtn(props) {
     repositories(username).then((e) => {
       setMm(e);
     });
-
-    document.addEventListener('click', (e) => {
-      console.log(ref.current);
-    });
   }, []);
   useEffect(() => {
     if (langu || type || sort) {

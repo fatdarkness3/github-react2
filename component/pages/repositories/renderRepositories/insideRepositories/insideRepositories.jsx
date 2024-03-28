@@ -3,7 +3,7 @@ import { insideRepositories } from '../../../../../api/insideRepositoriesApi';
 import { Link, json, useParams } from 'react-router-dom';
 import { pushFilesJs } from '../../../../../api/pushFiles';
 import InsideRepositoriesComponent from '../../../../components/insideRepositories/insideRepositoriesComponent';
-import HeaderForInsiderepositories from '../../../../components/headerForInsiderepositories/headerForInsideRepositories';
+import Header2 from '../../../../components/headerForInsiderepositories/headerForInsiderepositories';
 import '../../../../../styles/style.css';
 import { api } from '../../../../../api/userInfo';
 import { branch } from '../../../../../api/branch';
@@ -201,7 +201,7 @@ export default function InsideRepositories() {
 
   return (
     <>
-      <HeaderForInsiderepositories
+      <Header2
         params={username}
         nameOfRepository={nameOfRepository}
       />

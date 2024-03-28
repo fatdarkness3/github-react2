@@ -16,6 +16,7 @@ export default function Header2() {
   let username = params.username;
   let nameOfRepository = params.nameOfRepository;
   let ref = useRef();
+  let ref2 = useRef()
 
   useEffect(() => {
     repositories(username).then((e) => {
@@ -24,9 +25,24 @@ export default function Header2() {
       setRepose(e);
     });
   }, []);
+
+  useEffect(() => {
+
+
+    document.addEventListener("click" , (e) => {
+      console.log(e.target)
+      if(e.target == ref.current) {
+        setOpen(false)
+      }
+      if(e.target == ref2.current) {
+        setAc(false)
+      }
+    })
+
+  } , [])
   return (
     <>
-      <div className={ac ? 'back123' : 'none'} />
+      <div ref = {ref2} className={ac ? 'back123' : 'none'} />
       <header>
         <div className='column'>
           <div className='flex'>
@@ -52,7 +68,7 @@ export default function Header2() {
               <div className='right'>
                 {open
                   ? createPortal(
-                      <div className='abBlack'>
+                      <div ref={ref} className='abBlack'>
                         <div className='wrapper'>
                           <div className='content'>
                             <Input />
@@ -70,7 +86,7 @@ export default function Header2() {
                   onClick={() => {
                     setOpen(true);
                   }}>
-                  <div className='div' ref={ref}></div>
+                  <div className='div' ></div>
                   <i class='fa fa-search'></i>
                   <input
                     className='input'
